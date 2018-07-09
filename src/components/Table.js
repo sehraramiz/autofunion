@@ -8,17 +8,19 @@ class Table extends React.Component {
   // renders what a square should show in the table
   renderSquare(squareNumber, tag, dayRowIndex) {
     let classDays = this.props.classDays;
-    // iterate through class info that passed with props
-    // convert time, day to timeIndex, dayIndex to find the location
+    let pickedClasses = this.props.pickedClasses;
+    // iterate through picked classes that passed with props
+    // convert time and day to timeIndex and dayIndex to find the position
     // of the class section in table
     // if class info belongs to a square then we pass name of the class (or needed info)
     // down to square component
-    for (var i = 0; i < classDays.length; i++) {
-      let timeIndex = timeToIndex(classDays[i].class_time);
-      let dayIndex = dayToIndex(classDays[i].day);
-      if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
-        tag = classDays[i].class;
-        break;
+    for (var cls in pickedClasses) {
+      for (var i = 0; i < pickedClasses[cls].length; i++) {
+        let timeIndex = timeToIndex(pickedClasses[cls][i].class_time);
+        let dayIndex = dayToIndex(pickedClasses[cls][i].day);
+        if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
+          tag = tag + pickedClasses[cls][i].class;
+        }
       }
     }
 
@@ -103,6 +105,7 @@ class Container extends React.Component {
           <Table
             onClick={this.onSquareClick}
             classDays={this.props.classDays}
+            pickedClasses={this.props.pickedClasses}
           />
         </div>
       </div>

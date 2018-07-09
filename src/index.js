@@ -54,28 +54,39 @@ const StarterKit = () => (
   </div>
 )
 
+// list of classes in drop down list
+const classes = {
+  signal: "سيگنال و سيستم(اي تي ج)",
+  paygah: "پايگاه داده ها(علوم كامپيوتر)",
+  fizik: "فيزيک2(کامپيوتر)",
+  os: "سيستم عامل",
+}
 
 // Class Yab Page Main Component
 class ClassYab extends React.Component {
   constructor(props) {
       super(props);
-      this.state = {selectedClass: 'signal'};
+      this.state = {
+        selectedClass: 'signal',
+        pickedClasses: {},
+      };
 
       this.handleChange = this.handleChange.bind(this);
+      this.handleAddClick = this.handleAddClick.bind(this);
   }
 
   handleChange(event) {
     this.setState({selectedClass: event.target.value});
   }
 
-  render() {
+  handleAddClick() {
+    let classDays = findClass(classes[this.state.selectedClass]);
+    var pickedClasses = this.state.pickedClasses;
+    pickedClasses[classDays[0].id] = classDays;
+    this.setState({ pickedClasses });
+  }
 
-    let classes = {
-      signal: "سيگنال و سيستم(اي تي ج)",
-      paygah: "پايگاه داده ها(علوم كامپيوتر)",
-      fizik: "فيزيک2(کامپيوتر)",
-      os: "سيستم عامل",
-    }
+  render() {
     let classDays = findClass(classes[this.state.selectedClass])
 
     return (
@@ -89,12 +100,16 @@ class ClassYab extends React.Component {
             <option value="paygah">پایگاه</option>
             <option value="os">سیستم عامل</option>
           </select>
+          <br></br>
+          <button onClick={this.handleAddClick}>
+            اضافه کن
+          </button>
           <ul>
             {classDays.map((day) => <li>{day.class_time} {day.day}<br/>{day.class_loc}</li>)}
           </ul>
         </div>
         <div>
-          <Table classDays={classDays}/>
+          <Table classDays={classDays} pickedClasses={this.state.pickedClasses}/>
         </div>
       </div>
     );
