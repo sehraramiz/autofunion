@@ -121,6 +121,13 @@ class ClassYab extends React.Component {
 
 
 // Ostad Yab Page Main Component
+// list of teachers in drop down list
+const teachers = {
+  khadem: "خادم حسيني*امير*مهندسي كامپيوتر(100)*",
+  ehsan: "حسيني*احسان*مهندسي كامپيوتر(100)*",
+  fakhari: "فخاري*عباسعلي*مهندسي كامپيوتر(100)*",
+  ghafari: "غفاري*آقاي*فناوري اطلاعات(100)*"
+}
 class OstadYab extends React.Component {
   constructor(props) {
       super(props);
@@ -135,22 +142,8 @@ class OstadYab extends React.Component {
 
   render() {
 
-    let teachers = {
-      khadem: "خادم حسيني*امير*مهندسي كامپيوتر(100)*",
-      ehsan: "حسيني*احسان*مهندسي كامپيوتر(100)*",
-      fakhari: "فخاري*عباسعلي*مهندسي كامپيوتر(100)*",
-      ghafari: "غفاري*آقاي*فناوري اطلاعات(100)*"
-    }
     let name = teachers[this.state.selectedTeacher];
     let days = findTeacher(name);
-
-    let classes = {
-      signal: "سيگنال و سيستم(اي تي ج)",
-      paygah: "پايگاه داده ها(علوم كامپيوتر)",
-      fizik: "فيزيک2(کامپيوتر)",
-      os:"سيستم عامل",
-    }
-    let classDays = findClass(classes.signal)
 
     return (
       <div class="ostad-yab" dir="rtl">
