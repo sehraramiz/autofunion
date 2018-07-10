@@ -9,24 +9,37 @@ class Table extends React.Component {
   renderSquare(squareNumber, tag, dayRowIndex) {
     let classDays = this.props.classDays;
     let pickedClasses = this.props.pickedClasses;
-    // iterate through picked classes that passed with props
-    // convert time and day to timeIndex and dayIndex to find the position
-    // of the class section in table
-    // if class info belongs to a square then we pass name of the class (or needed info)
-    // down to square component
-    for (var cls in pickedClasses) {
-      for (var i = 0; i < pickedClasses[cls].length; i++) {
-        let timeIndex = timeToIndex(pickedClasses[cls][i].class_time);
-        let dayIndex = dayToIndex(pickedClasses[cls][i].day);
+    let allClasses = this.props.allClasses;
+    if (pickedClasses) {
+      // iterate through picked classes that passed with props
+      // convert time and day to timeIndex and dayIndex to find the position
+      // of the class section in table
+      // if class info belongs to a square then we pass name of the class (or needed info)
+      // down to square component
+      for (var cls in pickedClasses) {
+        for (var i = 0; i < pickedClasses[cls].length; i++) {
+          let timeIndex = timeToIndex(pickedClasses[cls][i].class_time);
+          let dayIndex = dayToIndex(pickedClasses[cls][i].day);
+          if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
+            tag = tag + pickedClasses[cls][i].class;
+          }
+        }
+      }
+
+    } else if (allClasses) {
+      // show all classes on the table
+      for (var i = 0; i < allClasses.length; i++) {
+        let timeIndex = timeToIndex(allClasses[i].class_time);
+        let dayIndex = dayToIndex(allClasses[i].day);
         if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
-          tag = tag + pickedClasses[cls][i].class;
+          tag = tag + " " + allClasses[i].class_loc;
         }
       }
     }
 
     return (
       <Square
-        onClick={() => this.props.onClick(squareNumber)}
+        onClick={() => this.props.onClick(tag)}
         value={tag}
       />
     );
@@ -93,9 +106,13 @@ class Table extends React.Component {
 }
 
 class Container extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {squareContent: ''};
+  }
 
-  onSquareClick = (i) => {
-    console.log("Clicked " + i);
+  onSquareClick = (content) => {
+    this.setState({squareContent: content});
   }
 
   render() {
@@ -106,7 +123,11 @@ class Container extends React.Component {
             onClick={this.onSquareClick}
             classDays={this.props.classDays}
             pickedClasses={this.props.pickedClasses}
+            allClasses={this.props.allClasses}
           />
+          <div>
+            {this.state.squareContent}
+          </div>
         </div>
       </div>
     );

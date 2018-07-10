@@ -16,6 +16,7 @@ const Base = () => (
       <Route exact path='/' component={Home}/>
       <Route exact path='/ostadyab' component={OstadYab}/>
       <Route exact path='/classyab' component={ClassYab}/>
+      <Route exact path='/emptyclass' component={EmptyClass}/>
       <Route path='/starterkit' component={StarterKit}/>
       <Route path='/about' component={About}/>
     </Switch>
@@ -30,6 +31,7 @@ const Header = () => (
         <li><Link to='/starterkit'>راهنمای کلاس اولی ها</Link></li>
         <li><Link to='/ostadyab'>استاد یاب</Link></li>
         <li><Link to='/classyab'>ابزار انتخاب واحد</Link></li>
+        <li><Link to='/emptyclass'>کلاسای خالی</Link></li>
         <li><Link to='/about'>درباره</Link></li>
       </ul>
     </nav>
@@ -171,6 +173,24 @@ class OstadYab extends React.Component {
   }
 }
 
+// Empty classes main components
+class EmptyClass extends React.Component {
+
+  render() {
+    return (
+      <div class="ostad-yab" dir="rtl">
+        <div>
+          <h2>کلاسای خالی هفته</h2>
+          <h3>چیزی که اگه از نگهبان آمارش و بخوای میگه باید از امور فرهنگی نامه بیاری :|</h3>
+          <h4>اینا که کلاسای پره!</h4>
+          <h5>از اصل عدم شمول استفاده کن عزیزم</h5>
+          <Table allClasses={getAllClassesArray()}/>
+        </div>
+      </div>
+    );
+  }
+
+}
 
 // tools
 
@@ -197,6 +217,11 @@ function findClass(className) {
   });
   return days;
 
+}
+
+// concats all days in class json data into one array
+function getAllClassesArray() {
+  return classData[0].concat(classData[1], classData[2], classData[3], classData[4])
 }
 
 
