@@ -166,6 +166,7 @@ class OstadYab extends React.Component {
           <ul>
             {days.map((day) => <li>{day.class_time} {day.day}<br/>{day.class_loc}</li>)}
           </ul>
+          <Table allClasses={days} />
         </div>
       </div>
     );
