@@ -62,6 +62,7 @@ class Table extends React.Component {
           <th>11:00</th>
           <th>14:00</th>
           <th>16:00</th>
+          <th>17:00</th>
           </tr>
           <tr>
             <th>شنبه</th>
@@ -70,6 +71,7 @@ class Table extends React.Component {
             <td>{this.renderSquare(12, "", 0)}</td>
             <td>{this.renderSquare(13, "", 0)}</td>
             <td>{this.renderSquare(14, "", 0)}</td>
+            <td>{this.renderSquare(15, "", 0)}</td>
           </tr>
           <tr>
             <th>یکشنبه</th>
@@ -78,6 +80,7 @@ class Table extends React.Component {
             <td>{this.renderSquare(22, "", 1)}</td>
             <td>{this.renderSquare(23, "", 1)}</td>
             <td>{this.renderSquare(24, "", 1)}</td>
+            <td>{this.renderSquare(25, "", 1)}</td>
           </tr>
           <tr>
             <th>دوشنبه</th>
@@ -86,6 +89,7 @@ class Table extends React.Component {
             <td>{this.renderSquare(32, "", 2)}</td>
             <td>{this.renderSquare(33, "", 2)}</td>
             <td>{this.renderSquare(34, "", 2)}</td>
+            <td>{this.renderSquare(35, "", 2)}</td>
           </tr>
           <tr>
             <th>سه شنبه</th>
@@ -94,6 +98,7 @@ class Table extends React.Component {
             <td>{this.renderSquare(42, "", 3)}</td>
             <td>{this.renderSquare(43, "", 3)}</td>
             <td>{this.renderSquare(44, "", 3)}</td>
+            <td>{this.renderSquare(45, "", 3)}</td>
           </tr>
           <tr>
             <th>چهارشنبه</th>
@@ -102,6 +107,7 @@ class Table extends React.Component {
             <td>{this.renderSquare(52, "", 4)}</td>
             <td>{this.renderSquare(53, "", 4)}</td>
             <td>{this.renderSquare(54, "", 4)}</td>
+            <td>{this.renderSquare(55, "", 4)}</td>
           </tr>
         </tbody>
 

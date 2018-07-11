@@ -7,6 +7,7 @@ const timeIndexMap = {
   "14" : 3,
   "16" : 4,
   "15" : 4,
+  "17" : 5,
 }
 
 const dayIndexMap = {
