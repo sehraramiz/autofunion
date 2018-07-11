@@ -106,9 +106,6 @@ class ClassYab extends React.Component {
           <button onClick={this.handleAddClick}>
             اضافه کن
           </button>
-          <ul>
-            {classDays.map((day) => <li>{day.class_time} {day.day}<br/>{day.class_loc}</li>)}
-          </ul>
         </div>
         <div>
           <Table classDays={classDays} pickedClasses={this.state.pickedClasses}/>
