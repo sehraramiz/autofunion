@@ -156,9 +156,6 @@ class OstadYab extends React.Component {
             <option value="khadem">خادم</option>
             <option value="fakhari">فخاری</option>
           </select>
-          <ul>
-            {days.map((day) => <li>{day.class_time} {day.day}<br/>{day.class_loc}</li>)}
-          </ul>
           <Table allClasses={days} squareContent="all"/>
         </div>
       </div>
