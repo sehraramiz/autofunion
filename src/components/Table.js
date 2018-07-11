@@ -64,44 +64,44 @@ class Table extends React.Component {
           <th>16:00</th>
           </tr>
           <tr>
-          <th>شنبه</th>
-          <td>{this.renderSquare(10, "", 0)}</td>
-          <td>{this.renderSquare(11, "", 0)}</td>
-          <td>{this.renderSquare(12, "", 0)}</td>
-          <td>{this.renderSquare(13, "", 0)}</td>
-          <td>{this.renderSquare(14, "", 0)}</td>
+            <th>شنبه</th>
+            <td>{this.renderSquare(10, "", 0)}</td>
+            <td>{this.renderSquare(11, "", 0)}</td>
+            <td>{this.renderSquare(12, "", 0)}</td>
+            <td>{this.renderSquare(13, "", 0)}</td>
+            <td>{this.renderSquare(14, "", 0)}</td>
           </tr>
           <tr>
-          <th>یکشنبه</th>
-          <td>{this.renderSquare(20, "", 1)}</td>
-          <td>{this.renderSquare(21, "", 1)}</td>
-          <td>{this.renderSquare(22, "", 1)}</td>
-          <td>{this.renderSquare(23, "", 1)}</td>
-          <td>{this.renderSquare(24, "", 1)}</td>
+            <th>یکشنبه</th>
+            <td>{this.renderSquare(20, "", 1)}</td>
+            <td>{this.renderSquare(21, "", 1)}</td>
+            <td>{this.renderSquare(22, "", 1)}</td>
+            <td>{this.renderSquare(23, "", 1)}</td>
+            <td>{this.renderSquare(24, "", 1)}</td>
           </tr>
           <tr>
-          <th>دوشنبه</th>
-          <td>{this.renderSquare(30, "", 2)}</td>
-          <td>{this.renderSquare(31, "", 2)}</td>
-          <td>{this.renderSquare(32, "", 2)}</td>
-          <td>{this.renderSquare(33, "", 2)}</td>
-          <td>{this.renderSquare(34, "", 2)}</td>
+            <th>دوشنبه</th>
+            <td>{this.renderSquare(30, "", 2)}</td>
+            <td>{this.renderSquare(31, "", 2)}</td>
+            <td>{this.renderSquare(32, "", 2)}</td>
+            <td>{this.renderSquare(33, "", 2)}</td>
+            <td>{this.renderSquare(34, "", 2)}</td>
           </tr>
           <tr>
-          <th>سه شنبه</th>
-          <td>{this.renderSquare(40, "", 3)}</td>
-          <td>{this.renderSquare(41, "", 3)}</td>
-          <td>{this.renderSquare(42, "", 3)}</td>
-          <td>{this.renderSquare(43, "", 3)}</td>
-          <td>{this.renderSquare(44, "", 3)}</td>
+            <th>سه شنبه</th>
+            <td>{this.renderSquare(40, "", 3)}</td>
+            <td>{this.renderSquare(41, "", 3)}</td>
+            <td>{this.renderSquare(42, "", 3)}</td>
+            <td>{this.renderSquare(43, "", 3)}</td>
+            <td>{this.renderSquare(44, "", 3)}</td>
           </tr>
           <tr>
-          <th>چهارشنبه</th>
-          <td>{this.renderSquare(50, "", 4)}</td>
-          <td>{this.renderSquare(51, "", 4)}</td>
-          <td>{this.renderSquare(52, "", 4)}</td>
-          <td>{this.renderSquare(53, "", 4)}</td>
-          <td>{this.renderSquare(54, "", 4)}</td>
+            <th>چهارشنبه</th>
+            <td>{this.renderSquare(50, "", 4)}</td>
+            <td>{this.renderSquare(51, "", 4)}</td>
+            <td>{this.renderSquare(52, "", 4)}</td>
+            <td>{this.renderSquare(53, "", 4)}</td>
+            <td>{this.renderSquare(54, "", 4)}</td>
           </tr>
         </tbody>
 
