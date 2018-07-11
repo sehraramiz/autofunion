@@ -159,7 +159,7 @@ class OstadYab extends React.Component {
           <ul>
             {days.map((day) => <li>{day.class_time} {day.day}<br/>{day.class_loc}</li>)}
           </ul>
-          <Table allClasses={days} />
+          <Table allClasses={days} squareContent="all"/>
         </div>
       </div>
     );
@@ -178,7 +178,7 @@ class EmptyClass extends React.Component {
           <h3>چیزی که اگه از نگهبان آمارش و بخوای میگه باید از امور فرهنگی نامه بیاری :|</h3>
           <h4>اینا که کلاسای پره!</h4>
           <h5>از اصل عدم شمول استفاده کن عزیزم</h5>
-          <Table allClasses={getAllClassesArray()}/>
+          <Table allClasses={getAllClassesArray()} squareContent="location"/>
         </div>
       </div>
     );

@@ -10,6 +10,7 @@ class Table extends React.Component {
     let classDays = this.props.classDays;
     let pickedClasses = this.props.pickedClasses;
     let allClasses = this.props.allClasses;
+    let squareContent = this.props.squareContent;
     if (pickedClasses) {
       // iterate through picked classes that passed with props
       // convert time and day to timeIndex and dayIndex to find the position
@@ -32,7 +33,11 @@ class Table extends React.Component {
         let timeIndex = timeToIndex(allClasses[i].class_time);
         let dayIndex = dayToIndex(allClasses[i].day);
         if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
-          tag = tag + " " + allClasses[i].class_loc;
+          if (squareContent === "all") {
+            tag = tag + "\n" + allClasses[i].class + " " + allClasses[i].class_loc;
+          } else if (squareContent === "location") {
+            tag = tag + " " + allClasses[i].class_loc;
+          }
         }
       }
     }
@@ -124,6 +129,7 @@ class Container extends React.Component {
             classDays={this.props.classDays}
             pickedClasses={this.props.pickedClasses}
             allClasses={this.props.allClasses}
+            squareContent={this.props.squareContent}
           />
           <div>
             {this.state.squareContent}
