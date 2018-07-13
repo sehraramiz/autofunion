@@ -1,3 +1,5 @@
+import classData from './static/data.json' ;
+
 // Utilities Rest Here
 
 const timeIndexMap = {
@@ -26,4 +28,34 @@ export function timeToIndex(classTime) {
 // gets a persian text day and converts it to an index
 export function dayToIndex(classDay) {
   return dayIndexMap[classDay];
+}
+
+// iterates through data.json and find all classes of the given teacher
+export function findTeacher(teacherName) {
+  let days = []
+  classData.forEach((day) => {
+    day.forEach((classInfo) => {
+      if (classInfo.teacher === teacherName)
+        days.push(classInfo)
+    })
+  })
+  return days;
+}
+
+// iterates through data.json and find all classes of the given class name
+export function findClass(className) {
+  let days = []
+  classData.forEach((day) => {
+    day.forEach((classInfo) => {
+      if (classInfo.class === className)
+        days.push(classInfo)
+    })
+  });
+  return days;
+
+}
+
+// concats all days in class json data into one array
+export function getAllClassesArray() {
+  return classData[0].concat(classData[1], classData[2], classData[3], classData[4])
 }
