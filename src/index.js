@@ -25,9 +25,9 @@ import { AUTHENTICATED } from './actions/types';
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
 
-const user = localStorage.getItem('user');
+const token = localStorage.getItem('token');
 
-if(user) {
+if(token !== '') {
   store.dispatch({ type: AUTHENTICATED });
 }
 

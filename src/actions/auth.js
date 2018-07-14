@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTHENTICATED, UNAUTHENTICATED, AUTHENTICATION_ERROR, SIGN_OUT_USER } from './types';
+import { AUTHENTICATED, AUTHENTICATION_ERROR, SIGN_OUT_USER } from './types';
 
 
 const URL = 'http://127.0.0.1:8000/api/v1/rest-auth';
@@ -10,8 +10,8 @@ export function signInAction({ username, email, password }, history) {
       const res = await axios.post(`${URL}/login/`, { username, email, password });
 
       dispatch({ type: AUTHENTICATED });
-      localStorage.setItem('user', res.data.token);
-      history.push('/profile');
+      localStorage.setItem('token', res.data.key);
+      // history.push('/profile');
     } catch(error) {
       console.log(error);
       dispatch({
@@ -25,9 +25,9 @@ export function signInAction({ username, email, password }, history) {
 export function signOutAction(history) {
   return async (dispatch) => {
     try {
-      dispatch({ type: SIGN_OUT_USER });
-      localStorage.setItem('user', null);
+      localStorage.setItem('token', '');
       history.push('/');
+      dispatch({ type: SIGN_OUT_USER });
     } catch(error) {
       console.log(error);
     }

@@ -9,7 +9,8 @@ export default function(state={}, action) {
     case AUTHENTICATION_ERROR:
       return { ...state, error: action.payload };
     case SIGN_OUT_USER:
-      return {};
+      return { ...state, authenticated: false, error: '' };
+    default:
+      return { ...state };
   }
-  return state;
 }
