@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { fetchBoard } from '../../actions/board';
 import Message from './MessageItem';
 
-const MessageList = (props) => {
-    return (
-        <div class="message-board">
-          <Message />
-          <Message />
-          <Message />
-          <Message />
-        </div>
-    );
-};
+class MessageList extends Component {
+  renderMessages = (value) => {
+    return <Message value={value} />
+  }
 
-export default MessageList;
+  componentWillMount() {
+    this.props.fetchBoard();
+  }
+
+  render() {
+    return(
+      <div class="message-board">
+        { this.props.board === undefined ? 'no message to show' :
+          this.props.board.map( (listValue) => this.renderMessages(listValue) )
+        }
+
+      </div>
+    );
+  };
+}
+
+const mapStateToProps = ({ board }) => {
+  let data = board.board.data
+  return { board: data };
+}
+
+export default connect(mapStateToProps, { fetchBoard })(MessageList);

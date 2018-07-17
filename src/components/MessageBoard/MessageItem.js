@@ -5,11 +5,11 @@ const Message = (props) => {
     return (
         <div class="message">
           <Card>
-            <div>
-            username
+            <div dir="ltr">
+              {props.value === undefined ? '' : props.value.id } :
             </div>
             <div>
-            text
+              {props.value === undefined ? '' : props.value.text}
             </div>
           </Card>
         </div>
