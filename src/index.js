@@ -5,6 +5,10 @@ import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+// defaults to localStorage for web and AsyncStorage for react-native
+import storage from 'redux-persist/lib/storage';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import './styles/index.css';
 import Header from './components/Header.js';
@@ -20,16 +24,19 @@ import Signup from './components/auth/Signup';
 import reducers from './reducers/';
 import requireAuth from './components/hoc/require_auth';
 import noRequireAuth from './components/hoc/no_require_auth';
-import { AUTHENTICATED } from './actions/types';
+
+// redux-persist conf
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-const store = createStoreWithMiddleware(reducers);
+const store = createStoreWithMiddleware(persistedReducer);
+const persistor = persistStore(store);
 
-const token = localStorage.getItem('token');
-
-if(token !== '') {
-  store.dispatch({ type: AUTHENTICATED });
-}
 
 const Base = () => (
   <main class="content" dir="rtl">
@@ -51,8 +58,10 @@ const Base = () => (
 
 ReactDOM.render((
   <Provider store={store}>
-    <BrowserRouter>
-      <Base />
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <Base />
+      </BrowserRouter>
+    </PersistGate>
   </Provider>
 ), document.getElementById('root'));

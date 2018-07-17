@@ -11,7 +11,10 @@ class Profile extends Component {
   render() {
     return (
       <div >
-        <h2>پروفایل من</h2>
+        <div>
+          <h2>پروفایل من</h2>
+          <b>سلام  {this.props.user.username}</b>
+        </div>
         <button onClick={this.onSignOutClick}>
           خروج
         </button>
@@ -20,4 +23,8 @@ class Profile extends Component {
   }
 }
 
-export default connect(null, { signOutAction })(Profile);
+const mapStateToProps = ({ auth }) => {
+  return { user: auth.user };
+}
+
+export default connect(mapStateToProps, { signOutAction })(Profile);

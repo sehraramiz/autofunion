@@ -1,15 +1,27 @@
-import { AUTHENTICATED, UNAUTHENTICATED, AUTHENTICATION_ERROR, SIGN_OUT_USER } from '../actions/types';
+import {
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL,
+  SIGN_OUT_USER
+} from '../actions/types';
 
-export default function(state={}, action) {
+const INITIAL_STATE = {
+  authenticated: false,
+  error: '',
+  user: {},
+};
+
+export default function(state=INITIAL_STATE, action) {
   switch(action.type) {
-    case AUTHENTICATED:
-      return { ...state, authenticated: true };
-    case UNAUTHENTICATED:
-      return { ...state, authenticated: false };
-    case AUTHENTICATION_ERROR:
+    case LOGIN_USER_SUCCESS:
+      return { ...state, user: action.payload, authenticated: true }
+    case LOGIN_USER_FAIL:
       return { ...state, error: action.payload };
     case SIGN_OUT_USER:
       return { ...state, authenticated: false, error: '' };
+    // action that dispaches from redux-persist
+    // and has the previous state in it's payload
+    case 'persist/REHYDRATE':
+      return action.payload.auth;
     default:
       return { ...state };
   }

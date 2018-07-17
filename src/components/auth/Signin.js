@@ -30,11 +30,6 @@ class Signin extends Component {
                   type="text"
                   placeholder="Username"
             />
-            <Field name="email"
-                  component="input"
-                  type="text"
-                  placeholder="Email"
-            />
             <Field name="password"
                   component="input"
                   type="password"
