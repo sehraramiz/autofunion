@@ -6,10 +6,10 @@ const Message = (props) => {
         <div class="message">
           <Card>
             <div dir="ltr">
-              {props.value === undefined ? '' : props.value.id } :
+              { props.value === undefined ? '' : props.value.owner }:
             </div>
             <div>
-              {props.value === undefined ? '' : props.value.text}
+              { props.value === undefined ? '' : props.value.text }
             </div>
           </Card>
         </div>
