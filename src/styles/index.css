@@ -69,3 +69,31 @@ header ul *:hover {
 header ul *.active {
     background-color: #4CAF50;
 }
+
+/* message card style*/
+.card {
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+  border: 1px solid;
+  transition: 0.3s;
+  width: 250px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+/* message and message list style */
+.message-board {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  align-self: center;
+}
