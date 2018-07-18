@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import Card from './Card';
 import MessageList from './MessageBoard/MessageList';
+import NewMessage from './MessageBoard/NewMessage';
 
-const Home = () => (
-  <div >
-    <h2>اتوفانیون،<br/>چیزایی که اتوماسیون آموزشی کم داره.</h2>
-    <MessageList />
-  </div>
-)
+class Home extends Component {
+  renderNewMessageBox() {
+    if (this.props.authenticated) {
+      return <NewMessage />
+    }
+    return '';
+  }
 
-export default Home;
+  render() {
+    return(
+      <div >
+        <h2>اتوفانیون،<br/>چیزایی که اتوماسیون آموزشی کم داره.</h2>
+        {this.renderNewMessageBox()}
+        <MessageList />
+      </div>
+    );
+  };
+}
+
+const mapStateToProps = ({ auth }) => {
+  return { authenticated: auth.authenticated };
+}
+
+export default connect(mapStateToProps)(Home);

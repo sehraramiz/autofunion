@@ -13,7 +13,7 @@ class Profile extends Component {
       <div >
         <div>
           <h2>پروفایل من</h2>
-          <b>سلام  {this.props.user.username}</b>
+          <b>سلام  {this.props.user === undefined ? '' : this.props.user.username}</b>
         </div>
         <button onClick={this.onSignOutClick}>
           خروج
