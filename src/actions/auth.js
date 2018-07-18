@@ -13,14 +13,15 @@ export function signInAction({ username, email, password }, history) {
     try {
       const res = await axios.post(`${URL}/token/`, { username, password });
       const { user } = res.data;
-      dispatch({
-        type: LOGIN_USER_SUCCESS,
-        payload: user
-      });
-      localStorage.setItem('token', {
+      const token = {
         access_token: res.data.access_token,
         refresh_token: res.data.refresh_token,
+      };
+      dispatch({
+        type: LOGIN_USER_SUCCESS,
+        payload: { user, token }
       });
+      localStorage.setItem('token', token);
       localStorage.setItem('user', user);
       // history.push('/profile');
     } catch(error) {

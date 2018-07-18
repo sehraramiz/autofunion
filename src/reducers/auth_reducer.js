@@ -8,12 +8,15 @@ const INITIAL_STATE = {
   authenticated: false,
   error: '',
   user: {},
+  token: {},
 };
 
 export default function(state=INITIAL_STATE, action) {
   switch(action.type) {
     case LOGIN_USER_SUCCESS:
-      return { ...state, user: action.payload, authenticated: true }
+      console.log(action.payload);
+      const { user, token } = action.payload;
+      return { ...state, user, token, authenticated: true }
     case LOGIN_USER_FAIL:
       return { ...state, error: action.payload };
     case SIGN_OUT_USER:
