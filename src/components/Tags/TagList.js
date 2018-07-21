@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import TagItem from './TagItem';
 
 class TagList extends Component {
+  renderTag(tag) {
+    return <TagItem tagInfo={tag} onClick={this.onTagClick}/>
+  }
+
+  onTagClick = (content) => {
+    console.log(content);
+  }
+
   render() {
     return (
       <div>
-        <TagItem value="exam" />
-        <TagItem value="help" />
-        <TagItem value="blah" />
-        <TagItem value="suggestion" />
+        {this.props.tags.map( (tag) => this.renderTag(tag) )}
       </div>
     );
   };

@@ -12,7 +12,7 @@ const Message = (props) => {
             <div>
               { props.value === undefined ? '' : props.value.text }
             </div>
-            <TagList />
+            <TagList tags={props.value.tags}/>
           </Card>
         </div>
     );
