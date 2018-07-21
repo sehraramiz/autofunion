@@ -97,3 +97,25 @@ header ul *.active {
 .message {
   align-self: center;
 }
+
+/* Tag Item Styles */
+.tag-item {
+  background: #fff;
+  border: 1px solid #999;
+  border-radius: 20px;
+  float: right;
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;
+  height: auto;
+  width: auto;
+}
+
+.tag-item:hover {
+  background: #7ccbd6;
+  color: #fff;
+}
+
+.tag-item:focus {
+  outline: none;
+}

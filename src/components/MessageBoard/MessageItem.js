@@ -1,5 +1,6 @@
 import React from 'react';
-import Card from '../Card'
+import Card from '../Card';
+import TagList from '../Tags/TagList';
 
 const Message = (props) => {
     return (
@@ -11,6 +12,7 @@ const Message = (props) => {
             <div>
               { props.value === undefined ? '' : props.value.text }
             </div>
+            <TagList />
           </Card>
         </div>
     );
