@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchBoard, fetchBoardWithTag } from '../../actions/board';
+import {
+  fetchBoard,
+  fetchBoardWithTag,
+  fetchTags,
+} from '../../actions/board';
 import Message from './MessageItem';
+import TagList from '../Tags/TagList';
 
 class MessageList extends Component {
   constructor(props) {
@@ -17,6 +22,7 @@ class MessageList extends Component {
 
   componentWillMount() {
     this.props.fetchBoard();
+    this.props.fetchTags();
   }
 
   onTagClick(tagId) {
@@ -25,19 +31,27 @@ class MessageList extends Component {
 
   render() {
     return(
-      <div class="message-board">
-        { this.props.board === undefined ? 'no message to show' :
-          this.props.board.map( (listValue) => this.renderMessages(listValue) )
-        }
+      <div>
+        <TagList tags={this.props.tags} onTagClick={this.onTagClick}/>
+        <div class="message-board">
+          { this.props.board === undefined ? 'no message to show' :
+            this.props.board.map( (listValue) => this.renderMessages(listValue) )
+          }
 
+        </div>
       </div>
     );
   };
 }
 
 const mapStateToProps = ({ board }) => {
-  let data = board.board.data
-  return { board: data };
+  let data = board.board.data;
+  let tags = board.tags.data;
+  return { board: data, tags };
 }
 
-export default connect(mapStateToProps, { fetchBoard, fetchBoardWithTag })(MessageList);
+export default connect(mapStateToProps, {
+  fetchBoard,
+  fetchBoardWithTag,
+  fetchTags,
+})(MessageList);

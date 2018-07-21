@@ -2,6 +2,8 @@ import axios from 'axios';
 import {
   FETCH_BOARD_SUCCESS,
   FETCH_BOARD_FAIL,
+  FETCH_TAGS_SUCCESS,
+  FETCH_TAGS_FAIL,
 } from './types';
 
 
@@ -66,6 +68,24 @@ export function fetchBoardWithTag({ tagId }) {
       dispatch({
         type: FETCH_BOARD_FAIL,
         payload: 'Fetch Board Failed'
+      });
+    }
+  };
+}
+
+export function fetchTags() {
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(`${URL}/tags/`);
+      dispatch({
+        type: FETCH_TAGS_SUCCESS,
+        payload: res
+      });
+    } catch(error) {
+      console.log(error);
+      dispatch({
+        type: FETCH_TAGS_FAIL,
+        payload: 'Fetch Tagss Failed'
       });
     }
   };

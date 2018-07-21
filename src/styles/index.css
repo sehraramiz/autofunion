@@ -103,7 +103,7 @@ header ul *.active {
   background: #fff;
   border: 1px solid #999;
   border-radius: 20px;
-  float: right;
+  float: center;
   font-size: 12px;
   padding: 5px;
   text-align: center;

@@ -9,7 +9,9 @@ class TagList extends Component {
   render() {
     return (
       <div>
-        {this.props.tags.map( (tag) => this.renderTag(tag) )}
+        { this.props.tags === undefined ? 'no tags to show' :
+          this.props.tags.map( (tag) => this.renderTag(tag) )
+        }
       </div>
     );
   };

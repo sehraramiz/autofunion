@@ -7,3 +7,7 @@ export const LOGIN_USER_FAIL = 'login_user_fail';
 export const FETCH_BOARD_SUCCESS = 'fetch_board_success';
 
 export const FETCH_BOARD_FAIL = 'fetch_board_fail';
+
+export const FETCH_TAGS_SUCCESS = 'fetch_tags_success';
+
+export const FETCH_TAGS_FAIL = 'fetch_tags_fail';
