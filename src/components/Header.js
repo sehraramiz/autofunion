@@ -18,7 +18,7 @@ class Header extends Component {
 
   render () {
     return (
-      <header class="header">
+      <header className="header">
         <nav>
           <ul>
             <li><Link to='/'>خانه</Link></li>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import { sendMessage } from '../../actions/board';
-import Card from '../Card';
 
 class NewMessage extends Component {
 

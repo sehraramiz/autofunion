@@ -4,7 +4,7 @@ import TagList from '../Tags/TagList';
 
 const Message = (props) => {
     return (
-        <div class="message">
+        <div className="message">
           <Card>
             <div dir="ltr">
               { props.value === undefined ? '' : props.value.owner }:

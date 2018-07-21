@@ -33,7 +33,7 @@ class MessageList extends Component {
     return(
       <div>
         <TagList tags={this.props.tags} onTagClick={this.onTagClick}/>
-        <div class="message-board">
+        <div className="message-board">
           { this.props.board === undefined ? 'no message to show' :
             this.props.board.map( (listValue) => this.renderMessages(listValue) )
           }

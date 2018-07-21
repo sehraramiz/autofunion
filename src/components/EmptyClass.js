@@ -8,7 +8,7 @@ class EmptyClass extends React.Component {
 
   render() {
     return (
-      <div class="ostad-yab" dir="rtl">
+      <div className="ostad-yab" dir="rtl">
         <div>
           <h2>کلاسای خالی هفته</h2>
           <h3>چیزی که اگه از نگهبان آمارش و بخوای میگه باید از امور فرهنگی نامه بیاری :|</h3>

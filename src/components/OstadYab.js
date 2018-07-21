@@ -29,7 +29,7 @@ class OstadYab extends React.Component {
     let days = findTeacher(name);
 
     return (
-      <div class="ostad-yab" dir="rtl">
+      <div className="ostad-yab" dir="rtl">
         <div>
           <h2>استاد یاب</h2>
           <h3>کی اذیتت کرده؟</h3>

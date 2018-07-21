@@ -7,7 +7,6 @@ import { timeToIndex, dayToIndex } from '../Utils.js';
 class Table extends React.Component {
   // renders what a square should show in the table
   renderSquare(squareNumber, tag, dayRowIndex) {
-    let classDays = this.props.classDays;
     let pickedClasses = this.props.pickedClasses;
     let allClasses = this.props.allClasses;
     let squareContent = this.props.squareContent;
@@ -17,8 +16,8 @@ class Table extends React.Component {
       // of the class section in table
       // if class info belongs to a square then we pass name of the class (or needed info)
       // down to square component
-      for (var cls in pickedClasses) {
-        for (var i = 0; i < pickedClasses[cls].length; i++) {
+      for (let cls in pickedClasses) {
+        for (let i = 0; i < pickedClasses[cls].length; i++) {
           let timeIndex = timeToIndex(pickedClasses[cls][i].class_time);
           let dayIndex = dayToIndex(pickedClasses[cls][i].day);
           if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
@@ -29,7 +28,7 @@ class Table extends React.Component {
 
     } else if (allClasses) {
       // show all classes on the table
-      for (var i = 0; i < allClasses.length; i++) {
+      for (let i = 0; i < allClasses.length; i++) {
         let timeIndex = timeToIndex(allClasses[i].class_time);
         let dayIndex = dayToIndex(allClasses[i].day);
         if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Card from './Card';
 import MessageList from './MessageBoard/MessageList';
 import NewMessage from './MessageBoard/NewMessage';
 
