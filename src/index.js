@@ -39,7 +39,7 @@ const persistor = persistStore(store);
 
 
 const Base = () => (
-  <main class="content" dir="rtl">
+  <main className="content" dir="rtl">
     <Header />
     <Switch>
       <Route exact path='/' component={Home}/>
