@@ -5,12 +5,12 @@ import {
 } from './types';
 
 
-const URL = 'http://127.0.0.1:8000/api/v1/board/';
+const URL = 'http://127.0.0.1:8000/api/v1';
 
 export function fetchBoard(history) {
   return async (dispatch) => {
     try {
-      const res = await axios.get(URL);
+      const res = await axios.get(URL + '/board/');
       dispatch({
         type: FETCH_BOARD_SUCCESS,
         payload: res
@@ -36,7 +36,7 @@ export function sendMessage({ message, token }) {
       var data = {
           'text': message,
       }
-      const res = await axios.post(URL, data, axiosConfig);
+      const res = await axios.post(URL + '/board/', data, axiosConfig);
       // dispatch({
       //   type: FETCH_BOARD_SUCCESS,
       //   payload: res
@@ -49,6 +49,24 @@ export function sendMessage({ message, token }) {
       //   payload: 'Fetch Board Failed'
       // });
       console.log('message sent fail ' + error);
+    }
+  };
+}
+
+export function fetchBoardWithTag({ tagId }) {
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(`${URL}/tags/${tagId}/messages/`);
+      dispatch({
+        type: FETCH_BOARD_SUCCESS,
+        payload: res
+      });
+    } catch(error) {
+      console.log(error);
+      dispatch({
+        type: FETCH_BOARD_FAIL,
+        payload: 'Fetch Board Failed'
+      });
     }
   };
 }

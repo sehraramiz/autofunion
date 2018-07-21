@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchBoard } from '../../actions/board';
+import { fetchBoard, fetchBoardWithTag } from '../../actions/board';
 import Message from './MessageItem';
 
 class MessageList extends Component {
+  constructor(props) {
+      super(props);
+
+      this.onTagClick = this.onTagClick.bind(this);
+  }
+
   renderMessages = (value) => {
-    return <Message value={value} />
+    return <Message value={value} onTagClick={this.onTagClick}/>
   }
 
   componentWillMount() {
     this.props.fetchBoard();
+  }
+
+  onTagClick(tagId) {
+    this.props.fetchBoardWithTag({ tagId })
   }
 
   render() {
@@ -30,4 +40,4 @@ const mapStateToProps = ({ board }) => {
   return { board: data };
 }
 
-export default connect(mapStateToProps, { fetchBoard })(MessageList);
+export default connect(mapStateToProps, { fetchBoard, fetchBoardWithTag })(MessageList);
