@@ -42,7 +42,6 @@ class ClassYab extends React.Component {
       <div className="ostad-yab" dir="rtl">
         <div>
           <h2>انتخاب واحد برای بدبخت ها</h2>
-          <h3>چی ورداریم مشروط نشیم؟</h3>
           <select value={this.state.value} onChange={this.handleChange} dir="ltr">
             <option value="signal">سیگنال</option>
             <option value="fizik">فیزیک</option>
