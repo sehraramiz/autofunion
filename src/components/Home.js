@@ -15,7 +15,6 @@ class Home extends Component {
   render() {
     return(
       <div >
-        <h2>اتوفانیون،<br/>چیزایی که اتوماسیون آموزشی کم داره.</h2>
         {this.renderNewMessageBox()}
         <MessageList />
       </div>
