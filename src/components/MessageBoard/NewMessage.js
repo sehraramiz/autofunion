@@ -51,13 +51,14 @@ class NewMessage extends Component {
     return(
       <div>
         <div>
-          <h2>New Message</h2>
-          <input
+          <h3>پیام جدید</h3>
+          <textarea
             type="text"
             name="message"
             placeholder="type your message"
             value={this.state.message}
             onChange={this.handleChange}
+            maxLength={300}
             />
 
         </div>
