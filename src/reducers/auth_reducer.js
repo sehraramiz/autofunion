@@ -24,7 +24,7 @@ export default function(state=INITIAL_STATE, action) {
     // action that dispaches from redux-persist
     // and has the previous state in it's payload
     case 'persist/REHYDRATE':
-      return action.payload.auth;
+      return action.payload === undefined ? { ...state } : action.payload.auth;
     default:
       return { ...state };
   }
