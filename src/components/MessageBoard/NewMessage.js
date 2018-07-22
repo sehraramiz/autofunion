@@ -16,6 +16,10 @@ class NewMessage extends Component {
   }
 
   onSendMessageHandler() {
+    if (this.state.selectedTags.length === 0 || this.state.message === "") {
+      console.log('is empty');
+      return;
+    }
     this.props.sendMessage({
       message: this.state.message,
       token: this.props.token,
@@ -63,7 +67,6 @@ class NewMessage extends Component {
 
         </div>
         <div>
-          <b>تگ ها</b>
           <select name="" onChange={this.handleTagSelect} multiple>
             { this.props.tags === undefined ? '' :
               this.props.tags.map( (tag) => this.renderTagList(tag) )
