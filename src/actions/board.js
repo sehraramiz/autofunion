@@ -27,7 +27,7 @@ export function fetchBoard(history) {
   };
 }
 
-export function sendMessage({ message, token }) {
+export function sendMessage({ message, token, tags }) {
   return async (dispatch) => {
     try {
       let axiosConfig = {
@@ -37,6 +37,7 @@ export function sendMessage({ message, token }) {
       };
       var data = {
           'text': message,
+          'tags': tags,
       }
       const res = await axios.post(URL + '/board/', data, axiosConfig);
       // dispatch({
