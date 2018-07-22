@@ -64,7 +64,7 @@ class NewMessage extends Component {
         </div>
         <div>
           <b>تگ ها</b>
-          <select name="cars" onChange={this.handleTagSelect} multiple>
+          <select name="" onChange={this.handleTagSelect} multiple>
             { this.props.tags === undefined ? '' :
               this.props.tags.map( (tag) => this.renderTagList(tag) )
             }
