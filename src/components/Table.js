@@ -52,7 +52,7 @@ class Table extends React.Component {
 
   render() {
     return (
-      <table >
+      <table classNmae="week-table">
         <tbody>
           <tr>
           <th scope="row">:></th>
@@ -127,19 +127,18 @@ class Container extends React.Component {
 
   render() {
     return (
-      <div className="game">
-        <div className="game-board">
-          <Table
-            onClick={this.onSquareClick}
-            classDays={this.props.classDays}
-            pickedClasses={this.props.pickedClasses}
-            allClasses={this.props.allClasses}
-            squareContent={this.props.squareContent}
+      <div className="table-container">
+        <Table
+          onClick={this.onSquareClick}
+          classDays={this.props.classDays}
+          pickedClasses={this.props.pickedClasses}
+          allClasses={this.props.allClasses}
+          squareContent={this.props.squareContent}
           />
-          <div>
-            {this.state.squareContent}
-          </div>
+        <div>
+          {this.state.squareContent}
         </div>
+
       </div>
     );
   }
