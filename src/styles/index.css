@@ -145,3 +145,17 @@ header ul *.active {
 .tag-item:focus {
   outline: none;
 }
+
+/* Signin Styles */
+.signin-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Forms Style */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin:auto;
+}

@@ -21,10 +21,9 @@ class Signin extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div className="form">
-        <div className="container">
-          <h2>Sign In</h2>
-          <form onSubmit={ handleSubmit(this.submit) }>
+        <div>
+          <form className="form" onSubmit={ handleSubmit(this.submit) }>
+            <h2>Sign In</h2>
             <Field name="username"
                   component="input"
                   type="text"
@@ -39,7 +38,6 @@ class Signin extends Component {
           </form>
           {this.errorMessage()}
         </div>
-      </div>
     );
   }
 }
