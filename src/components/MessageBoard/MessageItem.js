@@ -1,6 +1,8 @@
 import React from 'react';
+import moment from 'moment-jalaali';
 import Card from '../Card';
 import TagList from '../Tags/TagList';
+
 
 const Message = (props) => {
     return (
@@ -13,6 +15,7 @@ const Message = (props) => {
               { props.value === undefined ? '' : props.value.text }
             </div>
             <TagList tags={props.value.tags} onTagClick={props.onTagClick}/>
+            <p dir="ltr">{moment(props.value.created, "JYYYYMMDD").fromNow()}</p>
           </Card>
         </div>
     );
