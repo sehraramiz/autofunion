@@ -26,7 +26,15 @@ class MessageList extends Component {
   }
 
   onTagClick(tagId) {
-    this.props.fetchBoardWithTag({ tagId })
+    /*
+      if we deselected a tag tagId is -1 and we should clear tag filter from
+      board results
+    */
+    if (tagId === -1) {
+      this.props.fetchBoard();
+    } else {
+      this.props.fetchBoardWithTag({ tagId })
+    }
   }
 
   render() {

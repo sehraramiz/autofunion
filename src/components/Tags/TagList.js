@@ -16,8 +16,20 @@ class TagList extends Component {
   }
 
   onTagClick(tagId) {
-    this.setState({ selectedTag: tagId });
-    this.props.onTagClick(tagId);
+    /*
+      if user clicks on a tag it will call onTagClick method in MessageList
+      component and call fetchBoardWithTag method to show messages related to
+      tag ,if user clicks on selected tag we deselect the tag and fetch board
+      with no tag
+    */
+    if (this.state.selectedTag === tagId) {
+      this.setState({ selectedTag: -1 });
+      this.props.onTagClick(-1);
+    }
+    else {
+      this.setState({ selectedTag: tagId });
+      this.props.onTagClick(tagId);
+    }
   }
 
   render() {
