@@ -32,8 +32,8 @@ class MessageList extends Component {
   render() {
     return(
       <div>
-        <TagList tags={this.props.tags} onTagClick={this.onTagClick}/>
         <div className="message-board">
+          <TagList tags={this.props.tags} onTagClick={this.onTagClick}/>
           { this.props.board === undefined ? 'no message to show' :
             this.props.board.map( (listValue) => this.renderMessages(listValue) )
           }

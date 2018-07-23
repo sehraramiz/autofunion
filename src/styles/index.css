@@ -105,8 +105,9 @@ header ul *.active {
   /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
   border: 1px solid;
   transition: 0.3s;
-  width: 250px;
+  width: 60%;
   padding: 20px;
+  margin: auto;
   margin-bottom: 10px;
 }
 
@@ -122,6 +123,8 @@ header ul *.active {
 .message-board {
   display: flex;
   flex-direction: column;
+  width: 60%;
+  margin: auto;
 }
 
 .message {
