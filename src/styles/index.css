@@ -164,3 +164,29 @@ header ul *.active {
   width: 50%;
   margin:auto;
 }
+
+/* Hand of Fakhari Styles */
+.wrapper {
+    text-align: center;
+    position: relative;
+}
+.fakhariFinger {
+    position: absolute;
+    line-height: 1;
+    pointer-events: none;
+    font-size: calc(2em + 6vw);
+    transition: transform 0.5s ease;
+    top: 0;
+    left: 50%;
+    margin-left: -.35em;
+    transform-origin: 36% 0%;
+    transform: rotate(0deg) translateY(100vh);
+}
+
+.wrapper input:checked ~ .fakhariFinger {
+    transform: rotate(0deg);
+}
+.wrapper input {
+    transform: scale(2);
+    transform-origin: 50% 100%;
+}

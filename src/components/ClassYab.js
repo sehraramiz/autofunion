@@ -22,6 +22,7 @@ class ClassYab extends React.Component {
 
       this.handleChange = this.handleChange.bind(this);
       this.handleAddClick = this.handleAddClick.bind(this);
+
   }
 
   handleChange(event) {
@@ -35,19 +36,37 @@ class ClassYab extends React.Component {
     this.setState({ pickedClasses });
   }
 
+  componentDidMount() {
+    /* when fakhari's finger touched the checkbox
+      this event listener will uncheck the box */
+    this.refs.fakhariFinger.addEventListener("transitionend", function(){
+      if (document.getElementById("useless").checked == true) {
+        document.getElementById("useless").checked = false;
+    }
+    });
+  }
+
   render() {
     let classDays = findClass(classes[this.state.selectedClass])
-
     return (
       <div className="ostad-yab" dir="rtl">
         <div>
-          <h2>انتخاب واحد برای بدبخت ها</h2>
-          <select value={this.state.value} onChange={this.handleChange} dir="ltr">
-            <option value="signal">سیگنال</option>
-            <option value="fizik">فیزیک</option>
-            <option value="paygah">پایگاه</option>
-            <option value="os">سیستم عامل</option>
-          </select>
+          <div>
+            <h2>انتخاب واحد برای بدبخت ها</h2>
+            <select value={this.state.value} onChange={this.handleChange} dir="ltr">
+              <option value="signal">سیگنال</option>
+              <option value="fizik">فیزیک</option>
+              <option value="paygah">پایگاه</option>
+              <option value="os">سیستم عامل</option>
+            </select>
+          </div>
+          <br/>
+          <div class="wrapper">
+              <input type="checkbox" id="useless" /><br/>
+              <label for="useless">ساعت ۷ نباشه</label>
+              <div class="fakhariFinger" id="fakhariFinger" ref="fakhariFinger" >👆🏽</div>
+          </div>
+
           <br></br>
           <button onClick={this.handleAddClick}>
             اضافه کن
