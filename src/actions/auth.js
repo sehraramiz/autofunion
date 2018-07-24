@@ -3,6 +3,8 @@ import {
   SIGN_OUT_USER,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
+  SIGN_UP_USER_SUCCESS,
+  SIGN_UP_USER_FAIL
 } from './types';
 
 
@@ -43,6 +45,32 @@ export function signOutAction(history) {
       dispatch({ type: SIGN_OUT_USER });
     } catch(error) {
       console.log(error);
+    }
+  };
+}
+
+export function signUpAction({ username, invite_token, password }, history) {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post(`${URL}/register/`, { username, password, invite_token });
+      const { user } = res.data;
+      const token = {
+        access_token: res.data.token.access_token,
+        refresh_token: res.data.token.refresh_token,
+      };
+      dispatch({
+        type: SIGN_UP_USER_SUCCESS,
+        payload: { user, token }
+      });
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', user);
+      // history.push('/profile');
+    } catch(error) {
+      console.log(error);
+      dispatch({
+        type: SIGN_UP_USER_FAIL,
+        payload: 'Sign Up Failed'
+      });
     }
   };
 }

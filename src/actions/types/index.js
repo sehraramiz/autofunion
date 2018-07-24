@@ -4,6 +4,10 @@ export const LOGIN_USER_SUCCESS = 'login_user_success';
 
 export const LOGIN_USER_FAIL = 'login_user_fail';
 
+export const SIGN_UP_USER_SUCCESS = 'sign_up_user_success';
+
+export const SIGN_UP_USER_FAIL = 'sign_up_user_fail';
+
 export const FETCH_BOARD_SUCCESS = 'fetch_board_success';
 
 export const FETCH_BOARD_FAIL = 'fetch_board_fail';
