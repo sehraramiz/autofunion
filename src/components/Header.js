@@ -21,7 +21,7 @@ class Header extends Component {
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#home">React-Bootstrap</a>
+            <a href="#home">Autofunion</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
