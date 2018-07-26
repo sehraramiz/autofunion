@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 
 class Header extends Component {
   navbarLinks() {
@@ -18,21 +18,30 @@ class Header extends Component {
 
   render () {
     return (
-      <header className="header">
-        <nav>
-          <ul>
-            <li><Link to='/'>خانه</Link></li>
-            <li><Link to='/starterkit'>راهنمای کلاس اولی ها</Link></li>
-            <li><Link to='/ostadyab'>استاد یاب</Link></li>
-            <li><Link to='/classyab'>ابزار انتخاب واحد</Link></li>
-            <li><Link to='/emptyclass'>کلاسای خالی</Link></li>
-            <li><Link to='/about'>درباره</Link></li>
-          </ul>
-          <ul>
-            {this.navbarLinks()}
-          </ul>
-        </nav>
-      </header>
+      <Navbar inverse collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="#home">React-Bootstrap</a>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <NavItem eventKey={1}>
+              <Link to='/'>خانه</Link>
+            </NavItem>
+            <NavItem eventKey={2} href="#">
+              <Link to='/about'>درباره</Link>
+            </NavItem>
+            <NavDropdown eventKey={3} title="ابزار" id="basic-nav-dropdown">
+              <MenuItem eventKey={3.1}><Link to='/classyab'>ابزار انتخاب واحد</Link></MenuItem>
+              <MenuItem eventKey={3.1}><Link to='/emptyclass'>کلاسای خالی</Link></MenuItem>
+                <MenuItem eventKey={3.1}><Link to='/ostadyab'>استاد یاب</Link></MenuItem>
+              <MenuItem eventKey={3.1}>{this.navbarLinks()}</MenuItem>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     );
   }
 }
