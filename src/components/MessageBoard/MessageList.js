@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Row, Col, Grid } from 'react-bootstrap';
 
 import {
   fetchBoard,
@@ -40,13 +41,20 @@ class MessageList extends Component {
   render() {
     return(
       <div>
-        <div className="message-board">
-          <TagList tags={this.props.tags} onTagClick={this.onTagClick}/>
-          { this.props.board === undefined ? 'no message to show' :
-            this.props.board.map( (listValue) => this.renderMessages(listValue) )
-          }
-
-        </div>
+        <Grid>
+          <Row className="show-grid">
+            <Col xs={12}>
+              <TagList tags={this.props.tags} onTagClick={this.onTagClick}/>
+            </Col>
+          </Row>
+          <Row className="show-grid">
+            <Col xs={12}>
+              { this.props.board === undefined ? 'no message to show' :
+                this.props.board.map( (listValue) => this.renderMessages(listValue) )
+              }
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   };
