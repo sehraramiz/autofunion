@@ -61,11 +61,13 @@ select {
 
 /* message card style*/
 .card {
-  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border: 1px solid;
+  border-color: #ddd;
+  border-radius: 15px;
   transition: 0.3s;
   width: 60%;
-  padding: 20px;
+  padding: 10px;
   margin: auto;
   margin-bottom: 10px;
 }
@@ -87,7 +89,26 @@ select {
 }
 
 .message {
-  align-self: center;
+}
+
+.message #date {
+  /*text-align: right;*/
+  align-self: flex-end;
+}
+
+.message #owner {
+  text-align: left;
+}
+
+.message #text {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.message #footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /* Tag Item Styles */

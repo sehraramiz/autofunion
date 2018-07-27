@@ -8,14 +8,16 @@ const Message = (props) => {
     return (
         <div className="message">
           <Card>
-            <div dir="ltr">
+            <p dir="ltr" id="owner">
               { props.value === undefined ? '' : props.value.owner }:
-            </div>
-            <div>
+            </p>
+            <div id="text">
               { props.value === undefined ? '' : props.value.text }
             </div>
-            <TagList tags={props.value.tags} onTagClick={props.onTagClick}/>
-            <p dir="ltr">{moment(props.value.created, "JYYYYMMDD").fromNow()}</p>
+            <div id="footer">
+              <TagList tags={props.value.tags} onTagClick={props.onTagClick}/>
+              <p id="date" dir="ltr">{moment(props.value.created, "JYYYYMMDD").fromNow()}</p>
+            </div>
           </Card>
         </div>
     );
