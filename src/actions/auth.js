@@ -6,9 +6,9 @@ import {
   SIGN_UP_USER_SUCCESS,
   SIGN_UP_USER_FAIL
 } from './types';
+import { BASE_URL } from '../config';
 
-
-const URL = 'http://127.0.0.1:8000/authentication';
+const URL = `${BASE_URL}/authentication`;
 
 export function signInAction({ username, email, password }, history) {
   return async (dispatch) => {

@@ -5,9 +5,10 @@ import {
   FETCH_TAGS_SUCCESS,
   FETCH_TAGS_FAIL,
 } from './types';
+import { BASE_URL } from '../config';
 
 
-const URL = 'http://127.0.0.1:8000/api/v1';
+const URL = `${BASE_URL}/api/v1`;
 
 export function fetchBoard(history) {
   return async (dispatch) => {
