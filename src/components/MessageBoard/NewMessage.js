@@ -29,6 +29,7 @@ class NewMessage extends Component {
       console.log('is empty');
       return;
     }
+    this.setState({ show: false });
     this.props.sendMessage({
       message: this.state.message,
       token: this.props.token,
