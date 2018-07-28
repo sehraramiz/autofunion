@@ -4,6 +4,8 @@ import {
   FETCH_BOARD_FAIL,
   FETCH_TAGS_SUCCESS,
   FETCH_TAGS_FAIL,
+  CREATE_MESSAGE_SUCCESS,
+  CREATE_MESSAGE_FAIL
 } from './types';
 import { BASE_URL } from '../config';
 
@@ -41,18 +43,16 @@ export function sendMessage({ message, token, tags }) {
           'tags': tags,
       }
       const res = await axios.post(URL + '/board/', data, axiosConfig);
-      // dispatch({
-      //   type: FETCH_BOARD_SUCCESS,
-      //   payload: res
-      // });
-      console.log('message sent success');
+      dispatch({
+        type: CREATE_MESSAGE_SUCCESS,
+        payload: res
+      });
     } catch(error) {
       console.log(error);
-      // dispatch({
-      //   type: FETCH_BOARD_FAIL,
-      //   payload: 'Fetch Board Failed'
-      // });
-      console.log('message sent fail ' + error);
+      dispatch({
+        type: CREATE_MESSAGE_FAIL,
+        payload: 'Fetch Board Failed'
+      });
     }
   };
 }

@@ -15,3 +15,9 @@ export const FETCH_BOARD_FAIL = 'fetch_board_fail';
 export const FETCH_TAGS_SUCCESS = 'fetch_tags_success';
 
 export const FETCH_TAGS_FAIL = 'fetch_tags_fail';
+
+export const CREATE_MESSAGE_SUCCESS = 'create_message_success';
+
+export const CREATE_MESSAGE_FAIL = 'create_message_fail';
+
+export const HIDE_ALERT = 'hide_alert';
