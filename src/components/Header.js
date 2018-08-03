@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { hideAlert } from '../actions/alert';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown, Alert, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown, Alert } from 'react-bootstrap';
 
 class Header extends Component {
   constructor(props, context) {
@@ -27,30 +27,37 @@ class Header extends Component {
     this.props.hideAlert();
   }
 
+
   render () {
     return (
       <div>
-        <Navbar inverse collapseOnSelect>
+        <Navbar inverse collapseOnSelect className="nav-bar">
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#home">Autofunion</a>
+              <Link to="/">Autofunion</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
+              <NavDropdown eventKey={6} title="اکانت" id="basic-nav-dropdown">
+                <MenuItem eventKey={6.1}>{this.navbarLinks()}</MenuItem>
+              </NavDropdown>
+              <NavItem eventKey={5} href="#">
+                <Link to='/about'>درباره</Link>
+              </NavItem>
+              <NavItem eventKey={4} href="#">
+                <Link to='/classyab'>ابزار انتخاب واحد</Link>
+              </NavItem>
+              <NavItem eventKey={3} href="#">
+                <Link to='/emptyclass'>کلاسای خالی</Link>
+              </NavItem>
+              <NavItem eventKey={2} href="#">
+                <Link to='/ostadyab'>استاد یاب</Link>
+              </NavItem>
               <NavItem eventKey={1}>
                 <Link to='/'>خانه</Link>
               </NavItem>
-              <NavItem eventKey={2} href="#">
-                <Link to='/about'>درباره</Link>
-              </NavItem>
-              <NavDropdown eventKey={3} title="ابزار" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}><Link to='/classyab'>ابزار انتخاب واحد</Link></MenuItem>
-                <MenuItem eventKey={3.1}><Link to='/emptyclass'>کلاسای خالی</Link></MenuItem>
-                <MenuItem eventKey={3.1}><Link to='/ostadyab'>استاد یاب</Link></MenuItem>
-                <MenuItem eventKey={3.1}>{this.navbarLinks()}</MenuItem>
-              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

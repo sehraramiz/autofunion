@@ -183,3 +183,11 @@ select {
     transform: scale(2);
     transform-origin: 50% 100%;
 }
+
+.nav-bar {
+  background: #000;
+}
+
+.nav-bar a {
+  color: #ddd;
+}
