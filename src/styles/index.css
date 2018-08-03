@@ -1,5 +1,12 @@
+@font-face {
+    font-family: "BKoodakBold";
+    src:url("fonts/BKoodakBold.eot?#") format("eot"),
+          url("fonts/BKoodakBold.woff") format("woff"),
+          url("fonts/BKoodakBold.ttf") format("truetype");
+}
+
 * {
-  font-family: monospace;
+  font-family: BKoodakBold;
 }
 
 html {
