@@ -6,7 +6,8 @@
 }
 
 * {
-  font-family: BKoodakBold;
+  /*font-family: BKoodakBold;*/
+  font-family: monospace;
 }
 
 html {
