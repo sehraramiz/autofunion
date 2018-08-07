@@ -40,20 +40,14 @@ class Header extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              <NavDropdown eventKey={6} title="اکانت" id="basic-nav-dropdown">
-                <MenuItem eventKey={6.1}>{this.navbarLinks()}</MenuItem>
+              <NavDropdown eventKey={4} title="اکانت" id="basic-nav-dropdown">
+                <MenuItem eventKey={4.1}>{this.navbarLinks()}</MenuItem>
               </NavDropdown>
-              <NavItem eventKey={5} href="#">
+              <NavItem eventKey={3} href="#">
                 <Link to='/about'>درباره</Link>
               </NavItem>
-              <NavItem eventKey={4} href="#">
-                <Link to='/classyab'>ابزار انتخاب واحد</Link>
-              </NavItem>
-              <NavItem eventKey={3} href="#">
-                <Link to='/emptyclass'>کلاسای خالی</Link>
-              </NavItem>
               <NavItem eventKey={2} href="#">
-                <Link to='/ostadyab'>استاد یاب</Link>
+                <Link to='/tools'>ابزار</Link>
               </NavItem>
               <NavItem eventKey={1}>
                 <Link to='/'>خانه</Link>

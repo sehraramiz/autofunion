@@ -15,9 +15,7 @@ import Header from './components/Header.js';
 import Home from './components/Home.js';
 import About from './components/About.js';
 import StarterKit from './components/StarterKit.js';
-import ClassYab from './components/ClassYab.js';
-import OstadYab from './components/OstadYab.js';
-import EmptyClass from './components/EmptyClass.js';
+import Tools from './components/Tools.js';
 import Profile from './components/Profile';
 import Signin from './components/auth/Signin';
 import Signup from './components/auth/Signup';
@@ -43,9 +41,7 @@ const Base = () => (
     <Header />
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route exact path='/ostadyab' component={OstadYab}/>
-      <Route exact path='/classyab' component={ClassYab}/>
-      <Route exact path='/emptyclass' component={EmptyClass}/>
+      <Route exact path='/tools' component={Tools}/>
       <Route path='/starterkit' component={StarterKit}/>
       <Route path='/about' component={About}/>
       <Route path='/signin' component={noRequireAuth(Signin)}/>
