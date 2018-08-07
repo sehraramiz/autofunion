@@ -29,8 +29,7 @@ class OstadYab extends React.Component {
     let days = findTeacher(name);
 
     return (
-      <div className="ostad-yab" dir="rtl">
-        <div>
+        <div className="table-page-container" dir="rtl">
           <h2>استاد یاب</h2>
           <h3>کی اذیتت کرده؟</h3>
           <select value={this.state.value} onChange={this.handleChange} dir="ltr">
@@ -41,7 +40,6 @@ class OstadYab extends React.Component {
           </select>
           <Table allClasses={days} squareContent="all"/>
         </div>
-      </div>
     );
 
   }

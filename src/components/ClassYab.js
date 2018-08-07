@@ -49,7 +49,7 @@ class ClassYab extends React.Component {
   render() {
     let classDays = findClass(classes[this.state.selectedClass])
     return (
-      <div className="ostad-yab" dir="rtl">
+      <div className="table-page-container" dir="rtl">
         <div>
           <div>
             <h2>انتخاب واحد برای بدبخت ها</h2>
