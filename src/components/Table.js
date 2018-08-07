@@ -2,7 +2,10 @@ import React from 'react';
 import Square from './Square.js';
 import '../styles/table.css';
 import { timeToIndex, dayToIndex } from '../Utils.js';
-
+import {
+  Modal,
+  Button,
+} from 'react-bootstrap';
 
 class Table extends React.Component {
   // renders what a square should show in the table
@@ -118,11 +121,23 @@ class Table extends React.Component {
 class Container extends React.Component {
   constructor(props) {
       super(props);
-      this.state = {squareContent: ''};
+      this.state = {
+        squareContent: '',
+        show: false,
+      };
+
+      this.handleClose = this.handleClose.bind(this);
+
+  }
+
+  handleClose() {
+    this.setState({ show: false });
   }
 
   onSquareClick = (content) => {
     this.setState({squareContent: content});
+    if (content.length > 0)
+      this.setState({ show: true });
   }
 
   render() {
@@ -135,9 +150,14 @@ class Container extends React.Component {
           allClasses={this.props.allClasses}
           squareContent={this.props.squareContent}
           />
-        <div>
-          {this.state.squareContent}
-        </div>
+        <Modal show={this.state.show} onHide={this.handleClose} dir='rtl'>
+          <Modal.Header closeButton>
+            <Modal.Title>کلاس ها</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>{this.state.squareContent}</p>
+          </Modal.Body>
+        </Modal>
 
       </div>
     );
