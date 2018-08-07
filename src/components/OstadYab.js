@@ -32,7 +32,7 @@ class OstadYab extends React.Component {
         <div className="table-page-container" dir="rtl">
           <h2>استاد یاب</h2>
           <h3>کی اذیتت کرده؟</h3>
-          <select value={this.state.value} onChange={this.handleChange} dir="ltr">
+          <select value={this.state.value} onChange={this.handleChange}>
             <option value="ehsan">احسان</option>
             <option value="ghafari">غفاری</option>
             <option value="khadem">خادم</option>

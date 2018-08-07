@@ -53,7 +53,7 @@ class ClassYab extends React.Component {
         <div>
           <div>
             <h2>انتخاب واحد برای بدبخت ها</h2>
-            <select value={this.state.value} onChange={this.handleChange} dir="ltr">
+            <select value={this.state.value} onChange={this.handleChange}>
               <option value="signal">سیگنال</option>
               <option value="fizik">فیزیک</option>
               <option value="paygah">پایگاه</option>
