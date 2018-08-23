@@ -24,7 +24,7 @@ class Table extends React.Component {
           let timeIndex = timeToIndex(pickedClasses[cls][i].class_time);
           let dayIndex = dayToIndex(pickedClasses[cls][i].day);
           if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
-            tag = tag + pickedClasses[cls][i].class;
+            tag = tag + pickedClasses[cls][i].title;
           }
         }
       }
@@ -36,7 +36,7 @@ class Table extends React.Component {
         let dayIndex = dayToIndex(allClasses[i].day);
         if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
           if (squareContent === "all") {
-            tag = tag + "\n" + allClasses[i].class + " " + allClasses[i].class_loc;
+            tag = tag + "\n" + allClasses[i].title + " " + allClasses[i].class_loc;
           } else if (squareContent === "location") {
             tag = tag + " " + allClasses[i].class_loc;
           }
