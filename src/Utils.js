@@ -34,11 +34,11 @@ export function dayToIndex(classDay) {
 };
 
 // iterates through data.json and find all classes of the given teacher
-export function findTeacher(teacherName) {
+export function findTeacher(teacherInfo) {
   let days = [];
   classes.forEach((day) => {
     day.forEach((classInfo) => {
-      if (classInfo.teacher.first_name === teacherName.first_name && classInfo.teacher.last_name === teacherName.last_name)
+      if (classInfo.teacher.first_name === teacherInfo.first_name && classInfo.teacher.last_name === teacherInfo.last_name)
         days.push(classInfo);
     })
   })
