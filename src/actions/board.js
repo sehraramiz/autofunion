@@ -51,7 +51,7 @@ export function sendMessage({ message, token, tags }) {
       console.log(error);
       dispatch({
         type: CREATE_MESSAGE_FAIL,
-        payload: 'Fetch Board Failed'
+        payload: 'Send Message Failed'
       });
     }
   };
