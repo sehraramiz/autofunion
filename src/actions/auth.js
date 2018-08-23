@@ -16,8 +16,8 @@ export function signInAction({ username, email, password }, history) {
       const res = await axios.post(`${URL}/token/`, { username, password });
       const { user } = res.data;
       const token = {
-        access_token: res.data.access_token,
-        refresh_token: res.data.refresh_token,
+        access_token: res.data.token.access_token,
+        refresh_token: res.data.token.refresh_token,
       };
       dispatch({
         type: LOGIN_USER_SUCCESS,
