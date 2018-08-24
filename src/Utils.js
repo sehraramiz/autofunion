@@ -46,11 +46,11 @@ export function findTeacher(teacherInfo) {
 }
 
 // iterates through data.json and find all classes of the given class name
-export function findClass(className) {
+export function findClass(selectedClass) {
   let days = []
   classes.forEach((day) => {
     day.forEach((classInfo) => {
-      if (classInfo.title === className)
+      if (classInfo.id === selectedClass.id && classInfo.group === selectedClass.group)
         days.push(classInfo);
     })
   });

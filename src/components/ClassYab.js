@@ -1,22 +1,28 @@
 import React from 'react';
+import Select from 'react-select';
 import Table from './Table.js';
-import { findClass } from '../Utils.js';
+import { findClass, getAllClassesArray } from '../Utils.js';
 
 
-// list of classes in drop down list
-const classes = {
-  signal: "سيگنال و سيستم(اي تي ج)",
-  paygah: "پايگاه داده ها(علوم كامپيوتر)",
-  fizik: "فيزيک2(کامپيوتر)",
-  os: "سيستم عامل",
-}
+const allClasses = getAllClassesArray();
+const options = []
+allClasses.forEach((item) => {
+  options.push({
+    value: item.id,
+    label: item.title,
+    group: item.group,
+  });
+});
 
 // Class Yab Page Main Component
 class ClassYab extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        selectedClass: 'signal',
+        selectedClass: {
+            id: '120331073',
+            group: '1',
+        },
         pickedClasses: {},
       };
 
@@ -25,14 +31,17 @@ class ClassYab extends React.Component {
 
   }
 
-  handleChange(event) {
-    this.setState({selectedClass: event.target.value});
+  handleChange(selectedClass) {
+    this.setState({ selectedClass: {
+      id: selectedClass.value,
+      group: selectedClass.group,
+    }});
   }
 
   handleAddClick() {
-    let classDays = findClass(classes[this.state.selectedClass]);
+    let classDays = findClass(this.state.selectedClass);
     var pickedClasses = this.state.pickedClasses;
-    pickedClasses[classDays[0].id] = classDays;
+    pickedClasses[this.state.selectedClass.id] = classDays;
     this.setState({ pickedClasses });
   }
 
@@ -47,17 +56,17 @@ class ClassYab extends React.Component {
   }
 
   render() {
-    let classDays = findClass(classes[this.state.selectedClass])
+    let classDays = findClass(this.state.selectedClass)
     return (
       <div className="table-page-container" dir="rtl">
         <div>
           <div>
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value="signal">سیگنال</option>
-              <option value="fizik">فیزیک</option>
-              <option value="paygah">پایگاه</option>
-              <option value="os">سیستم عامل</option>
-            </select>
+            <Select
+              value={this.state.value}
+              onChange={this.handleChange}
+              options={options}
+              className="Select"
+            />
           </div>
           <br/>
           <div class="wrapper">
