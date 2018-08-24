@@ -22,7 +22,6 @@ class OstadYab extends React.Component {
   }
 
   renderTeacherOptions(teacher) {
-    console.log(teacher);
     return <option value={teacher.id}>{teacher.first_name + " " + teacher.last_name } </option>
 
   }
