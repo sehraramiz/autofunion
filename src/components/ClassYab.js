@@ -80,12 +80,9 @@ class ClassYab extends React.Component {
             اضافه کن
           </button>
         </div>
-        <div>
-          <Table classDays={classDays} pickedClasses={this.state.pickedClasses}/>
-        </div>
+        <Table classDays={classDays} pickedClasses={this.state.pickedClasses}/>
       </div>
     );
-
   }
 }
 
