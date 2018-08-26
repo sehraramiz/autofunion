@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Label } from 'react-bootstrap';
 import Select from 'react-select';
 import Table from './Table.js';
 import { findClass, getAllClassesArray, getAllDepartments } from '../Utils.js';
@@ -89,6 +89,7 @@ class ClassYab extends React.Component {
         <div>
           <Row className="show-grid">
             <Col xs={6} md={6}>
+              <Label bsStyle="primary">کلاس</Label>
               <Select
                 value={this.state.value}
                 onChange={this.handleChange}
@@ -97,6 +98,7 @@ class ClassYab extends React.Component {
               />
             </Col>
             <Col xs={6} md={6}>
+              <Label bsStyle="primary">گروه</Label>
               <Select
                 value={this.state.value}
                 onChange={this.handleDepChange}
