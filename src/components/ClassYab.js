@@ -12,11 +12,16 @@ const depOptions = [];
 allClasses.forEach((item) => {
   classOptions.push({
     value: item.id,
-    label: item.title,
+    label: item.department.id === "1301" ? item.title + " گروه " + item.group : item.title,
     group: item.group,
+    dep: item.department.id,
   });
 });
 
+depOptions.push({
+  value: "0",
+  label: "همه",
+})
 Object.keys(allDepartments).forEach((item) => {
   depOptions.push({
     value: item,
@@ -33,7 +38,7 @@ class ClassYab extends React.Component {
             id: '120331073',
             group: '1',
         },
-        selectedDep: '1203',
+        selectedDep: '0',
         pickedClasses: {},
       };
 
@@ -54,7 +59,7 @@ class ClassYab extends React.Component {
     this.setState({ selectedDep: selectedDep.value });
     classOptions = [];
     allClasses.forEach((item) => {
-      if (selectedDep.value === item.department.id) {
+      if (selectedDep.value === item.department.id || selectedDep.value === "0") {
         classOptions.push({
           value: item.id,
           label: item.title,
@@ -62,7 +67,6 @@ class ClassYab extends React.Component {
         });
       };
     });
-    console.log(classOptions);
   }
 
   handleAddClick() {
