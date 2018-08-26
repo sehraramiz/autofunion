@@ -215,3 +215,7 @@ select {
 .nav-bar a {
   color: #ddd;
 }
+
+.show-grid {
+  width: 80%;
+}

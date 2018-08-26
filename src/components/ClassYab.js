@@ -90,27 +90,27 @@ class ClassYab extends React.Component {
     let classDays = findClass(this.state.selectedClass);
     return (
       <div className="table-page-container" dir="rtl">
+        <Row className="show-grid">
+          <Col xs={6} md={6}>
+            <Label bsStyle="primary">کلاس</Label>
+            <Select
+              value={this.state.value}
+              onChange={this.handleChange}
+              options={classOptions}
+              className="Select"
+              />
+          </Col>
+          <Col xs={6} md={6}>
+            <Label bsStyle="primary">گروه</Label>
+            <Select
+              value={this.state.value}
+              onChange={this.handleDepChange}
+              options={depOptions}
+              className="DepSelect"
+              />
+          </Col>
+        </Row>
         <div>
-          <Row className="show-grid">
-            <Col xs={6} md={6}>
-              <Label bsStyle="primary">کلاس</Label>
-              <Select
-                value={this.state.value}
-                onChange={this.handleChange}
-                options={classOptions}
-                className="Select"
-              />
-            </Col>
-            <Col xs={6} md={6}>
-              <Label bsStyle="primary">گروه</Label>
-              <Select
-                value={this.state.value}
-                onChange={this.handleDepChange}
-                options={depOptions}
-                className="DepSelect"
-              />
-            </Col>
-          </Row>
           <br/>
           {/*<div class="wrapper">
               <input type="checkbox" id="useless" /><br/>
