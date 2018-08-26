@@ -4,6 +4,7 @@ import classData from './static/data.json' ;
 
 const classes = classData.classes;
 const teachers = classData.teachers;
+const departments = classData.departments;
 
 const timeIndexMap = {
   "07" : 0,
@@ -61,4 +62,8 @@ export function findClass(selectedClass) {
 // concats all days in class json data into one array
 export function getAllClassesArray() {
   return classes[0].concat(classes[1], classes[2], classes[3], classes[4]);
+}
+
+export function getAllDepartments() {
+  return departments;
 }

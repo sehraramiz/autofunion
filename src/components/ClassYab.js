@@ -1,16 +1,26 @@
 import React from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Select from 'react-select';
 import Table from './Table.js';
-import { findClass, getAllClassesArray } from '../Utils.js';
+import { findClass, getAllClassesArray, getAllDepartments } from '../Utils.js';
 
 
 const allClasses = getAllClassesArray();
-const options = []
+const allDepartments = getAllDepartments();
+var classOptions = [];
+const depOptions = [];
 allClasses.forEach((item) => {
-  options.push({
+  classOptions.push({
     value: item.id,
     label: item.title,
     group: item.group,
+  });
+});
+
+Object.keys(allDepartments).forEach((item) => {
+  depOptions.push({
+    value: item,
+    label: allDepartments[item],
   });
 });
 
@@ -23,10 +33,12 @@ class ClassYab extends React.Component {
             id: '120331073',
             group: '1',
         },
+        selectedDep: '1203',
         pickedClasses: {},
       };
 
       this.handleChange = this.handleChange.bind(this);
+      this.handleDepChange = this.handleDepChange.bind(this);
       this.handleAddClick = this.handleAddClick.bind(this);
 
   }
@@ -36,6 +48,21 @@ class ClassYab extends React.Component {
       id: selectedClass.value,
       group: selectedClass.group,
     }});
+  }
+
+  handleDepChange(selectedDep) {
+    this.setState({ selectedDep: selectedDep.value });
+    classOptions = [];
+    allClasses.forEach((item) => {
+      if (selectedDep.value === item.department.id) {
+        classOptions.push({
+          value: item.id,
+          label: item.title,
+          group: item.group,
+        });
+      };
+    });
+    console.log(classOptions);
   }
 
   handleAddClick() {
@@ -48,34 +75,42 @@ class ClassYab extends React.Component {
   componentDidMount() {
     /* when fakhari's finger touched the checkbox
       this event listener will uncheck the box */
-    this.refs.fakhariFinger.addEventListener("transitionend", function(){
-      if (document.getElementById("useless").checked == true) {
-        document.getElementById("useless").checked = false;
-    }
-    });
+    // this.refs.fakhariFinger.addEventListener("transitionend", function(){
+    //   if (document.getElementById("useless").checked == true) {
+    //     document.getElementById("useless").checked = false;
+    // }
+    // });
   }
 
   render() {
-    let classDays = findClass(this.state.selectedClass)
+    let classDays = findClass(this.state.selectedClass);
     return (
       <div className="table-page-container" dir="rtl">
         <div>
-          <div>
-            <Select
-              value={this.state.value}
-              onChange={this.handleChange}
-              options={options}
-              className="Select"
-            />
-          </div>
+          <Row className="show-grid">
+            <Col xs={6} md={6}>
+              <Select
+                value={this.state.value}
+                onChange={this.handleChange}
+                options={classOptions}
+                className="Select"
+              />
+            </Col>
+            <Col xs={6} md={6}>
+              <Select
+                value={this.state.value}
+                onChange={this.handleDepChange}
+                options={depOptions}
+                className="DepSelect"
+              />
+            </Col>
+          </Row>
           <br/>
-          <div class="wrapper">
+          {/*<div class="wrapper">
               <input type="checkbox" id="useless" /><br/>
               <label for="useless">ساعت ۷ نباشه</label>
               <div class="fakhariFinger" id="fakhariFinger" ref="fakhariFinger" >👆🏽</div>
-          </div>
-
-          <br></br>
+          </div>*/}
           <button onClick={this.handleAddClick}>
             اضافه کن
           </button>
