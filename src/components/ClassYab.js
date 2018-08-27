@@ -48,6 +48,7 @@ class ClassYab extends React.Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleDepChange = this.handleDepChange.bind(this);
       this.handleAddClick = this.handleAddClick.bind(this);
+      this.onRemoveClick = this.onRemoveClick.bind(this);
 
   }
 
@@ -76,6 +77,13 @@ class ClassYab extends React.Component {
     let classDays = findClassDays(this.state.selectedClass);
     var pickedClasses = this.state.pickedClasses;
     pickedClasses[this.state.selectedClass.id] = classDays;
+    this.setState({ pickedClasses });
+  }
+
+  onRemoveClick(id) {
+    console.log("remove " + id);
+    var pickedClasses = this.state.pickedClasses;
+    delete pickedClasses[id];
     this.setState({ pickedClasses });
   }
 
@@ -115,7 +123,7 @@ class ClassYab extends React.Component {
         </Row>
         <Row className="show-grid">
           <Col xs={12} md={4}>
-            <ClassList classes={this.state.pickedClasses}/>
+            <ClassList classes={this.state.pickedClasses} onRemoveClick={this.onRemoveClick}/>
           </Col>
           <Col xs={12} md={8}>
             <ClassInfo info={classDays} />

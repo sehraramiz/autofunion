@@ -10,7 +10,7 @@ class ClassList extends Component {
   }
 
   renderClass = (value) => {
-    return <ClassListItem value={value[0]} />
+    return <ClassListItem value={value[0]} onRemoveClick={this.props.onRemoveClick}/>
   }
 
   render() {

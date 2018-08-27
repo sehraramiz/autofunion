@@ -1,11 +1,14 @@
 import React from 'react';
-import Card from './Card';
+import ClassCard from './ClassCard';
 
 
 const ClassListItem = (props) => {
+    const onClassItemClick = () => {
+      props.onRemoveClick(props.value.id);
+    }
     return (
         <div className="class-list-item">
-            <b>{ props.value.title }</b>
+            <ClassCard onRemoveClick={onClassItemClick}>{ props.value.title }</ClassCard>
         </div>
     );
 };
