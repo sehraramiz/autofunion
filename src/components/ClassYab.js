@@ -2,7 +2,8 @@ import React from 'react';
 import { Grid, Row, Col, Label } from 'react-bootstrap';
 import Select from 'react-select';
 import Table from './Table.js';
-import { findClass, getAllClassesArray, getAllDepartments } from '../Utils.js';
+import ClassInfo from './ClassInfo';
+import { getAllClassesArray, getAllDepartments, findClassDays } from '../Utils.js';
 
 
 const allClasses = getAllClassesArray();
@@ -40,6 +41,7 @@ class ClassYab extends React.Component {
         },
         selectedDep: '0',
         pickedClasses: {},
+        info: {},
       };
 
       this.handleChange = this.handleChange.bind(this);
@@ -70,7 +72,7 @@ class ClassYab extends React.Component {
   }
 
   handleAddClick() {
-    let classDays = findClass(this.state.selectedClass);
+    let classDays = findClassDays(this.state.selectedClass);
     var pickedClasses = this.state.pickedClasses;
     pickedClasses[this.state.selectedClass.id] = classDays;
     this.setState({ pickedClasses });
@@ -87,7 +89,7 @@ class ClassYab extends React.Component {
   }
 
   render() {
-    let classDays = findClass(this.state.selectedClass);
+    let classDays = findClassDays(this.state.selectedClass);
     return (
       <div className="table-page-container" dir="rtl">
         <Row className="show-grid">
@@ -110,6 +112,7 @@ class ClassYab extends React.Component {
               />
           </Col>
         </Row>
+        <ClassInfo info={classDays} />
         <div>
           <br/>
           {/*<div class="wrapper">
