@@ -3,6 +3,7 @@ import { Grid, Row, Col, Label } from 'react-bootstrap';
 import Select from 'react-select';
 import Table from './Table.js';
 import ClassInfo from './ClassInfo';
+import ClassList from './ClassList';
 import { getAllClassesArray, getAllDepartments, findClassDays } from '../Utils.js';
 
 
@@ -112,7 +113,14 @@ class ClassYab extends React.Component {
               />
           </Col>
         </Row>
-        <ClassInfo info={classDays} />
+        <Row className="show-grid">
+          <Col xs={12} md={4}>
+            <ClassList classes={this.state.pickedClasses}/>
+          </Col>
+          <Col xs={12} md={8}>
+            <ClassInfo info={classDays} />
+          </Col>
+        </Row>
         <div>
           <br/>
           {/*<div class="wrapper">
