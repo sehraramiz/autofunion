@@ -4,7 +4,7 @@ import { Panel, Row, Col, Grid } from 'react-bootstrap';
 
 function ClassInfo(props) {
   return (
-      <Panel className="shirt">
+      <Panel className="class-info">
         <Panel.Body>
           <Row>
             <Col xs={12} md={6}>
