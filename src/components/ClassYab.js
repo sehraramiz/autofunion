@@ -37,7 +37,7 @@ class ClassYab extends React.Component {
       super(props);
       this.state = {
         selectedClass: {
-            id: '120331073',
+            id: '120630023',
             group: '1',
         },
         selectedDep: '0',
