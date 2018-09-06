@@ -12,13 +12,20 @@ const allDepartments = getAllDepartments();
 var classOptions = [];
 const depOptions = [];
 allClasses.forEach((item) => {
-  classOptions.push({
+  let classListItem = {
     value: item.id,
     label: item.department.id === "1301" ? item.title + " گروه " + item.group : item.title,
     group: item.group,
     dep: item.department.id,
-  });
+  }
+  classOptions.push(classListItem);
 });
+
+classOptions = classOptions.filter((item, index, self) =>
+  index === self.findIndex((t) => (
+    t.label === item.label
+  ))
+);
 
 depOptions.push({
   value: "0",
