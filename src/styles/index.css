@@ -223,3 +223,16 @@ select {
 .class-info {
   width: 80%;
 }
+
+/* class card style*/
+.class-card {
+  border: 1px solid;
+  border-color: #ddd;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  max-width: 600px;
+  margin: 5px;
+  cursor: pointer;
+}
