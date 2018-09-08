@@ -11,7 +11,7 @@ const teachers = classData.teachers;
 class OstadYab extends React.Component {
   constructor(props) {
       super(props);
-      this.state = {selectedTeacher: '32242863'};
+      this.state = {selectedTeacher: '21549682'};
 
       this.handleChange = this.handleChange.bind(this);
       this.renderTeacherOptions = this.renderTeacherOptions.bind(this);
