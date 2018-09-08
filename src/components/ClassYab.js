@@ -14,7 +14,7 @@ const depOptions = [];
 allClasses.forEach((item) => {
   let classListItem = {
     value: item.id,
-    label: item.department.id === "1301" ? item.title + " گروه " + item.group : item.title,
+    label: item.title + " گروه " + item.group,
     group: item.group,
     dep: item.department.id,
   }
@@ -56,6 +56,7 @@ class ClassYab extends React.Component {
       this.handleDepChange = this.handleDepChange.bind(this);
       this.handleAddClick = this.handleAddClick.bind(this);
       this.onRemoveClick = this.onRemoveClick.bind(this);
+      this.onClassItemClick = this.onClassItemClick.bind(this);
 
   }
 
@@ -73,11 +74,18 @@ class ClassYab extends React.Component {
       if (selectedDep.value === item.department.id || selectedDep.value === "0") {
         classOptions.push({
           value: item.id,
-          label: item.title,
+          label: item.title + " گروه " + item.group,
           group: item.group,
         });
       };
     });
+
+    classOptions = classOptions.filter((item, index, self) =>
+      index === self.findIndex((t) => (
+        t.label === item.label
+      ))
+    );
+
   }
 
   handleAddClick() {
@@ -92,6 +100,13 @@ class ClassYab extends React.Component {
     var pickedClasses = this.state.pickedClasses;
     delete pickedClasses[id];
     this.setState({ pickedClasses });
+  }
+
+  onClassItemClick(id) {
+    this.setState({ selectedClass: {
+      id,
+      group: "1",
+    }});
   }
 
   componentDidMount() {
@@ -130,7 +145,7 @@ class ClassYab extends React.Component {
         </Row>
         <Row className="show-grid">
           <Col xs={12} md={4}>
-            <ClassList classes={this.state.pickedClasses} onRemoveClick={this.onRemoveClick}/>
+            <ClassList classes={this.state.pickedClasses} onRemoveClick={this.onRemoveClick} onClick={this.onClassItemClick}/>
           </Col>
           <Col xs={12} md={8}>
             <ClassInfo info={classDays} />
