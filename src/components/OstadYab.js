@@ -34,7 +34,7 @@ class OstadYab extends React.Component {
     return (
         <div className="table-page-container" dir="rtl">
           <p>کی اذیتت کرده؟</p>
-          <select value={this.state.value} onChange={this.handleChange}>
+          <select value={this.state.selectedTeacher} onChange={this.handleChange}>
             { Object.keys(teachers).map( (id) => this.renderTeacherOptions(teachers[id]) ) }
           </select>
           <Table allClasses={days} squareContent="all"/>
