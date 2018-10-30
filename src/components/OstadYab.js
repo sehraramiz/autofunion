@@ -2,11 +2,29 @@ import React from 'react';
 import Table from './Table.js';
 import { findTeacher } from '../Utils.js';
 import classData from '../static/data.json';
+import Select from 'react-select';
+import { compareStrings } from '../Utils';
 
 
 // Ostad Yab Page Main Component
 // list of teachers in drop down list
 const teachers = classData.teachers;
+
+// Options for react-select
+const teachersOptions = [];
+Object.keys(teachers).forEach((teacher) => {
+  console.log(teacher);
+  teachersOptions.push({
+    value: teacher,
+    label: teachers[teacher].last_name + " " + teachers[teacher].first_name,
+    field: teachers[teacher].field,
+  });
+});
+
+// sort teachers options array alphabetically base on teacher's last name
+teachersOptions.sort((a, b) => {
+  return compareStrings(a.label, b.label);
+})
 
 class OstadYab extends React.Component {
   constructor(props) {
@@ -18,7 +36,7 @@ class OstadYab extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({selectedTeacher: event.target.value});
+    this.setState({selectedTeacher: event.value});
   }
 
   renderTeacherOptions(teacher) {
@@ -34,9 +52,12 @@ class OstadYab extends React.Component {
     return (
         <div className="table-page-container" dir="rtl">
           <p>کی اذیتت کرده؟</p>
-          <select value={this.state.selectedTeacher} onChange={this.handleChange}>
-            { Object.keys(teachers).map( (id) => this.renderTeacherOptions(teachers[id]) ) }
-          </select>
+          <Select
+            value={this.state.selectedTeacher}
+            onChange={this.handleChange}
+            options={teachersOptions}
+            className="Select"
+            />
           <Table allClasses={days} squareContent="all"/>
         </div>
     );
