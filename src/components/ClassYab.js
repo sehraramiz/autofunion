@@ -130,7 +130,7 @@ class ClassYab extends React.Component {
               value={this.state.value}
               onChange={this.handleChange}
               options={classOptions}
-              className="Select"
+              className="ClassSelect"
               />
           </Col>
           <Col xs={6} md={6}>
