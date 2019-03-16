@@ -40,13 +40,13 @@ const Base = () => (
   <main className="content" dir="rtl">
     <Header />
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route exact path='/tools' component={Tools}/>
+      <Route exact path='/' component={Tools}/>
+      {/*<Route exact path='/tools' component={Tools}/>
       <Route path='/starterkit' component={StarterKit}/>
       <Route path='/about' component={About}/>
       <Route path='/signin' component={noRequireAuth(Signin)}/>
       <Route path='/signup' component={noRequireAuth(Signup)}/>
-      <Route path="/profile" component={requireAuth(Profile)} />
+      <Route path="/profile" component={requireAuth(Profile)} />*/}
     </Switch>
   </main>
 )

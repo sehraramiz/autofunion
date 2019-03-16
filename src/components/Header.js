@@ -34,15 +34,15 @@ class Header extends Component {
         <Navbar inverse collapseOnSelect className="nav-bar">
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">Autofunion</Link>
+              <Link to="/tools">Autofunion</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
-          <Navbar.Collapse>
+          {/*<Navbar.Collapse>
             <Nav pullRight>
-              {/*<NavDropdown eventKey={4} title="اکانت" id="basic-nav-dropdown">
+              <NavDropdown eventKey={4} title="اکانت" id="basic-nav-dropdown">
                 <MenuItem eventKey={4.1}>{this.navbarLinks()}</MenuItem>
-              </NavDropdown>*/}
+              </NavDropdown>
               <NavItem eventKey={3} href="#">
                 <Link to='/about'>درباره</Link>
               </NavItem>
@@ -50,10 +50,10 @@ class Header extends Component {
                 <Link to='/tools'>ابزار</Link>
               </NavItem>
               <NavItem eventKey={1}>
-                <Link to='/'>خانه</Link>
+                <Link to='/tools'>خانه</Link>
               </NavItem>
             </Nav>
-          </Navbar.Collapse>
+          </Navbar.Collapse>*/}
         </Navbar>
         {
           this.props.alert !== 'undefined' ? this.props.alert.show &&
