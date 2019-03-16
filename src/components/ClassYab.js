@@ -96,7 +96,7 @@ class ClassYab extends React.Component {
   }
 
   onRemoveClick(id) {
-    console.log("remove " + id);
+    // console.log("remove " + id);
     var pickedClasses = this.state.pickedClasses;
     delete pickedClasses[id];
     this.setState({ pickedClasses });

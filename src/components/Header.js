@@ -40,9 +40,9 @@ class Header extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              <NavDropdown eventKey={4} title="اکانت" id="basic-nav-dropdown">
+              {/*<NavDropdown eventKey={4} title="اکانت" id="basic-nav-dropdown">
                 <MenuItem eventKey={4.1}>{this.navbarLinks()}</MenuItem>
-              </NavDropdown>
+              </NavDropdown>*/}
               <NavItem eventKey={3} href="#">
                 <Link to='/about'>درباره</Link>
               </NavItem>

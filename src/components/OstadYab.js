@@ -13,7 +13,7 @@ const teachers = classData.teachers;
 // Options for react-select
 const teachersOptions = [];
 Object.keys(teachers).forEach((teacher) => {
-  console.log(teacher);
+  // console.log(teacher);
   teachersOptions.push({
     value: teacher,
     label: teachers[teacher].last_name + " " + teachers[teacher].first_name,
@@ -53,7 +53,7 @@ class OstadYab extends React.Component {
         <div className="table-page-container" dir="rtl">
           <p>کی اذیتت کرده؟</p>
           <Select
-            value={this.state.selectedTeacher}
+            value={this.state.value}
             onChange={this.handleChange}
             options={teachersOptions}
             className="Select"
