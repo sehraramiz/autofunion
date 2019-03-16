@@ -36,7 +36,7 @@ class Header extends Component {
             <Navbar.Brand>
               <Link to="/tools">Autofunion</Link>
             </Navbar.Brand>
-            <Navbar.Toggle />
+            {/*<Navbar.Toggle />*/}
           </Navbar.Header>
           {/*<Navbar.Collapse>
             <Nav pullRight>
