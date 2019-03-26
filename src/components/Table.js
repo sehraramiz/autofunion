@@ -6,13 +6,16 @@ import {
   Modal,
   Button,
 } from 'react-bootstrap';
+import ClassText from './ClassText.js'
+
 
 class Table extends React.Component {
   // renders what a square should show in the table
   renderSquare(squareNumber, tag, dayRowIndex) {
     let pickedClasses = this.props.pickedClasses;
     let allClasses = this.props.allClasses;
-    let squareContent = this.props.squareContent;
+    let contentType = this.props.contentType;
+    let classTextList = []
     if (pickedClasses) {
       // iterate through picked classes that passed with props
       // convert time and day to timeIndex and dayIndex to find the position
@@ -26,6 +29,7 @@ class Table extends React.Component {
           if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
             tag = tag + pickedClasses[cls][i].title;
           }
+          classTextList.push(<ClassText contentType={contentType}>{pickedClasses[cls][i]}</ClassText>)
         }
       }
 
@@ -35,18 +39,20 @@ class Table extends React.Component {
         let timeIndex = timeToIndex(allClasses[i].class_time);
         let dayIndex = dayToIndex(allClasses[i].day);
         if (timeIndex === (squareNumber % 10) && dayIndex === dayRowIndex) {
-          if (squareContent === "all") {
+          if (contentType === "all") {
             tag = tag + "\n" + allClasses[i].title + " " + allClasses[i].class_loc;
-          } else if (squareContent === "location") {
+          } else if (contentType === "location") {
             tag = tag + " " + allClasses[i].class_loc;
           }
+          classTextList.push(<ClassText contentType={contentType}>{allClasses[i]}</ClassText>)
         }
       }
     }
 
+
     return (
       <Square
-        onClick={() => this.props.onClick(tag)}
+        onClick={() => this.props.onClick(classTextList, contentType)}
         value={tag}
       />
     );
@@ -148,7 +154,7 @@ class Container extends React.Component {
           classDays={this.props.classDays}
           pickedClasses={this.props.pickedClasses}
           allClasses={this.props.allClasses}
-          squareContent={this.props.squareContent}
+          contentType={this.props.contentType}
           />
         <Modal show={this.state.show} onHide={this.handleClose} dir='rtl'>
           <Modal.Header closeButton>

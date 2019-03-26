@@ -9,7 +9,7 @@ class EmptyClass extends React.Component {
   render() {
     return (
       <div className="table-page-container" dir="rtl">
-        <Table allClasses={getAllClassesArray()} squareContent="location"/>
+        <Table allClasses={getAllClassesArray()} contentType="location"/>
       </div>
     );
   }

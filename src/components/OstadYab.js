@@ -58,7 +58,7 @@ class OstadYab extends React.Component {
             options={teachersOptions}
             className="Select"
             />
-          <Table allClasses={days} squareContent="all"/>
+          <Table allClasses={days} contentType="all"/>
         </div>
     );
 
