@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import { Panel } from 'react-bootstrap';
 
-import MessageList from './MessageBoard/MessageList';
-import NewMessage from './MessageBoard/NewMessage';
 
 class Home extends Component {
-  renderNewMessageBox() {
-    if (this.props.authenticated) {
-      return <NewMessage />
-    }
-    return '';
-  }
 
   render() {
     return(
@@ -32,15 +23,9 @@ class Home extends Component {
             </p>
           </Panel.Body>
         </Panel>
-        {this.renderNewMessageBox()}
-        <MessageList />
       </div>
     );
   };
 }
 
-const mapStateToProps = ({ auth }) => {
-  return { authenticated: auth.authenticated };
-}
-
-export default connect(mapStateToProps)(Home);
+export default Home;

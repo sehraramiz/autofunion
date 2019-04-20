@@ -16,26 +16,7 @@ import './styles/index.css';
 import Header from './components/Header.js';
 import Home from './components/Home.js';
 import About from './components/About.js';
-import StarterKit from './components/StarterKit.js';
 import Tools from './components/Tools.js';
-import Profile from './components/Profile';
-import Signin from './components/auth/Signin';
-import Signup from './components/auth/Signup';
-import reducers from './reducers/';
-import requireAuth from './components/hoc/require_auth';
-import noRequireAuth from './components/hoc/no_require_auth';
-
-// redux-persist conf
-const persistConfig = {
-  key: 'root',
-  storage,
-};
-
-const persistedReducer = persistReducer(persistConfig, reducers);
-
-const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-const store = createStoreWithMiddleware(persistedReducer);
-const persistor = persistStore(store);
 
 
 const Base = () => (
@@ -49,23 +30,15 @@ const Base = () => (
     </GitHubForkRibbon>
     <Switch>
       <Route exact path='/' component={Tools}/>
-      {/*<Route exact path='/tools' component={Tools}/>
-      <Route path='/starterkit' component={StarterKit}/>
-      <Route path='/about' component={About}/>
-      <Route path='/signin' component={noRequireAuth(Signin)}/>
-      <Route path='/signup' component={noRequireAuth(Signup)}/>
-      <Route path="/profile" component={requireAuth(Profile)} />*/}
+      {/* <Route exact path='/tools' component={Tools}/>
+      <Route path='/about' component={About}/> */}
     </Switch>
   </main>
 )
 
 
 ReactDOM.render((
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter>
-        <Base />
-      </BrowserRouter>
-    </PersistGate>
-  </Provider>
+  <BrowserRouter>
+    <Base />
+  </BrowserRouter>
 ), document.getElementById('root'));
